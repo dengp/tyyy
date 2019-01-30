@@ -1,0 +1,16 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
+  <meta name="viewport" content="initial-scale=1">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <meta name="description" content="<%= htmlWebpackPlugin.options.description %>">
+  <script src="<%= htmlWebpackPlugin.files.chunks['common'].entry %>"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script src="<%= htmlWebpackPlugin.files.chunks[htmlWebpackPlugin.options.entry].entry %>"></script>
+</body>
+</html>
