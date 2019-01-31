@@ -5,26 +5,47 @@
       <Header :current="0" bg='no' />
       <TopAreaInfo />
     </div>
+    <TopEwm v-if="showTopEwm" />
     <Content />
     <Footer />
+    <Fixed v-if="showFixed" />
   </div>
 </template>
 <script>
 import Header from '../../components/Header';
 import Banner from './components/Banner';
 import TopAreaInfo from './components/TopAreaInfo';
+import TopEwm from './components/TopEwm';
 import Content from './components/Content';
 import Footer from '../../components/Footer';
+import Fixed from './components/Fixed';
 export default {
   components: {
     Header,
     Banner,
     TopAreaInfo,
+    TopEwm,
     Content,
-    Footer
+    Footer,
+    Fixed
+  },
+  data() {
+    return {
+      showTopEwm: false,
+      showFixed: false
+    }
   },
   created() {
-    document.documentElement.scrollTop = document.body.scrollTop = 0;
+    window.onscroll = () => {
+      const curTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const curHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      console.log(curTop>=curHeight)
+      if(curTop >= curHeight){
+        this.showFixed = true;
+      } else {
+        this.showFixed = false;
+      }
+    }
   }
 };
 </script>

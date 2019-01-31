@@ -75,7 +75,10 @@
         <div class="classList">
           <div class="classItem" :class="`class${index + 1}`" v-for="(item, index) in classList" :key="index">
             <div class="intro">
-              <span >{{item}}</span>
+              <span @click="item.show = true">{{item.btn}}</span>
+            </div>
+            <div class="ewm" v-if="item.show" @click="item.show = false">
+              <img :src="item.ewm" />
             </div>
           </div>
         </div>
@@ -160,7 +163,18 @@ export default {
           pic: require('../../../assets/images/headpic.png')
         }
       ],
-      classList: ['马上体验', '加入会员'],
+      classList: [
+        {
+          btn: '马上体验',
+          ewm: require('../../../assets/images/ewm1.png'),
+          show: false
+        },
+        {
+          btn: '加入会员',
+          ewm: require('../../../assets/images/ewm3.png'),
+          show: false
+        }
+      ],
       cur: 0,
       timer: null
     };
@@ -529,6 +543,7 @@ export default {
         flex-direction: column;
         align-items: center;
         margin: 0 15px;
+        position: relative;
         .intro {
           width: 485px;
           height: 680px;
@@ -563,6 +578,22 @@ export default {
               color: #ED5C34;
               border: 2px solid #ED5C34;
             }
+          }
+        }
+        .ewm {
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          border-radius:8px;
+          position: absolute;
+          left: 0;
+          top: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          img {
+            width: 280px;
+            height: 372px;
           }
         }
       }

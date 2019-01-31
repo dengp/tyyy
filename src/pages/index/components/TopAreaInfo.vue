@@ -4,7 +4,7 @@
       <h2>Stage Your Future</h2>
       <h2>展现你的未来</h2>
       <div class="icon">
-        <span class="wx"></span>
+        <span class="wx" @click="showTopEwm"></span>
         <div class="plam">
           <span class="ios"></span>
           <span class="android"></span>
@@ -17,11 +17,16 @@
   </div>
 </template>
 <script>
+import { scrollTop } from '../scroll';
 export default {
   methods: {
     go() {
       // document.body.style.overflow = 'scroll';
-      document.documentElement.scrollTop = document.body.scrollTop = document.body.clientHeight;
+      const sTop = document.documentElement.scrollTop || document.body.scrollTop;
+      scrollTop(window, sTop, document.body.clientHeight, 500, 'linear');
+    },
+    showTopEwm() {
+      this.$parent.showTopEwm = true;
     }
   }
 };
