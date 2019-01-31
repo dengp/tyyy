@@ -2,7 +2,7 @@
   <div class="footer">
     <div class="foot">
       <div class="list">
-        <a href="">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">用户协议</a>
+        <a href="./about.html">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./contact.html">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./join.html">加入我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./protocol.html">用户协议</a>
       </div>
       <span>©2019 童演童语（北京）教育科技有限公司 版权所有 | 京ICP备13005700<br/>技术支持：北京启航视讯科技有限公司</span>
     </div>

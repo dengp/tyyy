@@ -1,10 +1,12 @@
 <template>
-  <div class="header">
-    <div class="logo"></div>
-    <ul class="nav">
-      <li v-for="(item, index) in navList" :key="index" :class="{current: current === index}">{{item}}</li>
-      <li><span class="current">CN&nbsp;</span>/&nbsp;<span>EN</span></li>
-    </ul>
+  <div class="header" :class="{hasBg: !bg}">
+    <div class="head">
+      <div class="logo"></div>
+      <ul class="nav">
+        <li v-for="(item, index) in navList" :key="index" :class="{current: current === index}"><a :href="`./${item.page}.html`">{{item.title}}</a></li>
+        <li><a href="http://www.stagekids.com/"><span>CN&nbsp;</span>/&nbsp;EN</a></li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>
@@ -12,46 +14,97 @@ export default {
   props: {
     current: {
       type: Number,
-      default: 0
+      default: -1
+    },
+    bg: {
+      type: String,
+      default: null
     }
   },
   data() {
     return {
-      navList: ['首页', '关于我们', '联系我们', '加入我们']
+      navList: [
+        {
+          title: '首页',
+          page: 'index'
+        },
+        {
+          title: '关于我们',
+          page: 'about'
+        },
+        {
+          title: '联系我们',
+          page: 'contact'
+        },
+        {
+          title: '加入我们',
+          page: 'join'
+        }
+      ]
     };
   }
 };
 </script>
 <style lang="less" scoped>
 .header {
-  max-width: 1240px;
+  width: 100%;
   height: 90px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  z-index: 1;
-  .logo {
-    width: 141px;
-    height: 50px;
-    background: url("~assets/images/logo.png");
-    background-size: 100%;
-  }
-  .nav {
+  .head {
+    max-width: 1240px;
+    height: 90px;
     display: flex;
-    li {
-      margin-left: 41px;
-      color: #ffffff;
-      font-size:18px;
-      cursor: pointer;
-      &.current {
-        color: #FF6A65;
-      }
-      span.current {
-        color: #FF6A65;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    .logo {
+      width: 141px;
+      height: 50px;
+      background: url("~assets/images/logo.png");
+      background-size: 100%;
+    }
+    .nav {
+      display: flex;
+      li {
+        margin-left: 41px;
+        font-size:18px;
+        a {
+          color: #ffffff;
+          span {
+            color: #FF6A65;
+          }
+        }
+        &.current {
+          a {
+            color: #FF6A65;
+          }
+        }
       }
     }
+  }
+  &.hasBg {
+    background: #ffffff;
+    .head {
+      .logo {
+        background: url("~assets/images/logo_black.png");
+        background-size: 100%;
+      }
+      .nav {
+        display: flex;
+        li {
+          a {
+            color: #333333;
+          }
+          &.current {
+            a {
+              color: #FF6A65;
+            }
+          }
+        }
+      }
+    }
+    
   }
 }
 </style>

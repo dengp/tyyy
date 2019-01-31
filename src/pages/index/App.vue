@@ -2,7 +2,7 @@
   <div class="main">
     <Banner />
     <div class="area_top">
-      <Header :current="0" />
+      <Header :current="0" bg='no' />
       <TopAreaInfo />
     </div>
     <Content />
