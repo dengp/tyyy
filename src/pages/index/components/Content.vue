@@ -10,6 +10,7 @@
           <img :src="item.pic" />
           <span class="cardTitle">{{item.title}}</span>
           <span class="desc">{{item.desc}}</span>
+          <p class="details" :class="`details${index}`">{{item.details}}</p>
         </div>
       </div>
       <div class="intro">
@@ -33,8 +34,18 @@
       </div>
       <div class="lvList">
         <div class="lvItem" v-for="(item, index) in lvList" :key="index">
-          <div :class="`lv${index+1}`"></div>
-          <span>{{item}}</span>
+          <div class="lv">
+            <div :class="`lv${index+1}`"></div>
+            <span>{{item.title}}</span>
+          </div>
+          <div :class="`lvcon lvcon${index}`">
+            <span class="cnt" v-html="item.cnt"></span>
+            <span class="desctitle">{{item.hoverTitle}}</span>
+            <div class="descBox">
+              <div class="icon_j"></div>
+              <span class="desc" v-html="item.desc"></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -90,20 +101,48 @@ export default {
         {
           pic: require('../../../assets/images/card1.png'),
           title: '童言对话',
-          desc: 'Conversation'
+          desc: 'Conversation',
+          details: '童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述100字左右'
         },
         {
           pic: require('../../../assets/images/card2.png'),
           title: 'JOJO奇遇记',
-          desc: 'JOJO Stories'
+          desc: 'JOJO Stories',
+          details: '原创音频剧“Jojo奇遇记”重磅推出，宝儿们可以听到主角Jojo犯错误或失败的故事，真实、生动、轻松，让我们的孩子学会乐观地看待自己的失误甚至失败。通过听音频剧，与Jojo共同成长，帮助孩子提升适应各种环境与团队的能力；课后互动游戏，提高孩子独立思考与分析的能力。'
         },
         {
           pic: require('../../../assets/images/card3.png'),
           title: '一起来表演',
-          desc: 'Show time'
+          desc: 'Show time',
+          details: '一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，100字左右'
         }
       ],
-      lvList: ['Beginner', 'Elementary', 'Intermediate', 'Advanced'],
+      lvList: [
+        {
+          title: 'Beginner',
+          hoverTitle: 'Beginner （LV1）',
+          desc: 'Beginner （LV1）零基础<br/>从零开始的英语启蒙，针对没有接触任何英语学习的低龄学员。全面倾听纯正英语对话，从戏剧场景中进行系统学习英语',
+          cnt: '9个<br/>Program'
+        },
+        {
+          title: 'Elementary',
+          hoverTitle: 'Elementary （LV2）',
+          desc: 'Elementary （LV2）初级<br/>针对初级接触英语学习的低龄学员。全面倾听纯正英语对话，从戏剧场景中进行系统学习英语，针对初级接触英语学员。',
+          cnt: '6个<br/>Program'
+        },
+        {
+          title: 'Intermediate',
+          hoverTitle: 'Intermediate （LV3）',
+          desc: 'Intermediate （LV3）中级<br/>针对中级英语学习的学员。进行简单英语对话交流，识别单词达300以上。针对中级英语学习的学员。',
+          cnt: '6个<br/>Program'
+        },
+        {
+          title: 'Advanced',
+          hoverTitle: 'Advanced （LV4）',
+          desc: 'Advanced （LV4）高级<br/>针对高级英语学习的学员。英语对话交流无障碍，识别单词达500以上。针对高级英语学习的学员。',
+          cnt: '6个<br/>Program'
+        }
+      ],
       anchorList: [
         {
           name: 'NOORLINAH MOHAMED',
@@ -187,6 +226,7 @@ export default {
         border-radius: 8px;
         overflow: hidden;
         margin: 0 10px;
+        position: relative;
         img {
           width: 320px;
           height: 250px;
@@ -204,6 +244,32 @@ export default {
             font-size:18px;
             color: #999999;
             margin-top: 15px;
+          }
+        }
+        .details {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          font-size:18px;
+          color:rgba(255,255,255,1);
+          line-height:30px;
+          display: none;
+          padding: 28px 30px 0;
+          &.details0 {
+            background: #F6B221;
+          }
+          &.details1 {
+            background: #1CBCF9;
+          }
+          &.details2 {
+            background: #A8C100;
+          }
+        }
+        &:hover {
+          .details {
+            display: block;
           }
         }
       }
@@ -235,36 +301,136 @@ export default {
       margin-top: 56px;
       .lvItem {
         margin: 0 20px;
-        span {
-          color: #333333;
-          font-size:24px;
-          margin-top: 12px;
-          display: block;
-          text-align: center;
+        position: relative;
+        &:hover {
+          .lv {
+            visibility: hidden;
+          } 
+          .lvcon {
+            display: block !important;
+          }
+          .desctitle {
+            color: #F6B221 !important;
+          }
         }
-        .lv1 {
-          width: 221px;
-          height: 141px;
-          background: url("~assets/images/lv1.png");
-          background-size: 100%;
+        .lv {
+          span {
+            color: #333333;
+            font-size:24px;
+            margin-top: 12px;
+            display: block;
+            text-align: center;
+          }
+          .lv1 {
+            width: 221px;
+            height: 141px;
+            background: url("~assets/images/lv1.png");
+            background-size: 100%;
+          }
+          .lv2 {
+            width: 221px;
+            height: 201px;
+            background: url("~assets/images/lv2.png");
+            background-size: 100%;
+          }
+          .lv3 {
+            width: 221px;
+            height: 291px;
+            background: url("~assets/images/lv3.png");
+            background-size: 100%;
+          }
+          .lv4 {
+            width: 221px;
+            height: 361px;
+            background: url("~assets/images/lv4.png");
+            background-size: 100%;
+          }
         }
-        .lv2 {
+        .lvcon {
           width: 221px;
-          height: 201px;
-          background: url("~assets/images/lv2.png");
-          background-size: 100%;
-        }
-        .lv3 {
-          width: 221px;
-          height: 291px;
-          background: url("~assets/images/lv3.png");
-          background-size: 100%;
-        }
-        .lv4 {
-          width: 221px;
-          height: 361px;
-          background: url("~assets/images/lv4.png");
-          background-size: 100%;
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          display: none;
+          .cnt {
+            width: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 37px;
+            font-size:30px;
+            font-weight:bold;
+            color:rgba(51,51,51,1);
+            line-height:36px;
+            text-align: center;
+          }
+          .desctitle {
+            color: #333333;
+            font-size:24px;
+            margin-top: 12px;
+            display: block;
+            text-align: center;
+            white-space:nowrap; 
+          }
+          .descBox {
+            .icon_j {
+              width: 30px;
+              height: 20px;
+              background: url("~assets/images/icon_j.png");
+              background-size: 100%;
+              margin-left: 95px;
+            }
+            .desc {
+              width: 1000px;
+              height: 100px;
+              background: #ffffff;
+              border-radius:8px;
+              display: block;
+              font-size:18px;
+              color:rgba(51,51,51,1);
+              line-height:36px;
+              padding: 20px 0 0 20px;
+            }
+          }
+          &.lvcon0 {
+            .cnt {
+              background: #FBCD6A;
+              height: 141px;
+            }
+          }
+          &.lvcon1 {
+            .cnt {
+              background: #f1c25f;
+              height: 201px;
+            }
+            .descBox {
+              .desc {
+                margin-left: -260px;
+              }
+            }
+          }
+          &.lvcon2 {
+            .cnt {
+              background: #efbb52;
+              height: 291px;
+            }
+            .descBox {
+              .desc {
+                margin-left: -520px;
+              }
+            }
+          }
+          &.lvcon3 {
+            .cnt {
+              background: #ecb446;
+              height: 361px;
+            }
+            .descBox {
+              .desc {
+                margin-left: -780px;
+              }
+            }
+          }
         }
       }
     }
