@@ -28,7 +28,7 @@ class Zip {
     const date = new Date();
     const timeString = `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}_${date.getHours()}.${date.getMinutes()}.${date.getSeconds()}`;
     // this.zipName = `${pkg.version}_${timeString}.zip`;
-    this.zipName = 'netsong.zip';
+    this.zipName = 'tyyy.zip';
     const isBuild = await fse.exists(this.distPath);
     if (!isBuild) {
       console.log(chalk.green('[压缩]'), chalk.red('dist目录为空，请先编译！！！'));
@@ -45,7 +45,7 @@ class Zip {
       console.log(chalk.green(`${this.zipName}已生成，大小为：`), chalk.bold(filesize(this.archiveZip.pointer())));
     });
     this.archiveZip.pipe(output);
-    this.archiveZip.directory(this.tempZipDirPath, this.zipName);
+    this.archiveZip.directory(this.tempZipDirPath, this.zipName.replace('.zip', ''));
     this.archiveZip.finalize();
   }
 }
