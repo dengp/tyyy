@@ -3,6 +3,7 @@
     <div class="logo"></div>
     <ul class="nav">
       <li v-for="(item, index) in navList" :key="index" :class="{current: current === index}">{{item}}</li>
+      <li><span class="current">CN&nbsp;</span>/&nbsp;<span>EN</span></li>
     </ul>
   </div>
 </template>
@@ -45,6 +46,9 @@ export default {
       font-size:18px;
       cursor: pointer;
       &.current {
+        color: #FF6A65;
+      }
+      span.current {
         color: #FF6A65;
       }
     }

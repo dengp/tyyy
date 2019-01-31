@@ -5,19 +5,23 @@
       <Header :current="0" />
       <TopAreaInfo />
     </div>
-    <div class="content">
-    </div>
+    <Content />
+    <Footer />
   </div>
 </template>
 <script>
 import Header from '../../components/Header';
 import Banner from './components/Banner';
 import TopAreaInfo from './components/TopAreaInfo';
+import Content from './components/Content';
+import Footer from '../../components/Footer';
 export default {
   components: {
     Header,
     Banner,
-    TopAreaInfo
+    TopAreaInfo,
+    Content,
+    Footer
   },
   created() {
     document.documentElement.scrollTop = document.body.scrollTop = 0;
@@ -26,7 +30,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .main {
-  min-width: 1240px;
+  min-width: 1440px;
   height: 100%;
   position: relative;
   margin: 0 auto;
@@ -38,10 +42,6 @@ export default {
     left: 0px;
     top: 0px;
     z-index: 1;
-  }
-  .content {
-    height: 2000px;
-    background: red;
   }
 }
 </style>
