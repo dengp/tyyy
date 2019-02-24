@@ -169,7 +169,7 @@ export default {
       background: #ffffff;
       li {
         height: 0.9rem;
-        box-shadow:0 0.01rem 0 0 rgba(216,216,216,1);
+        border-bottom: 1px solid rgba(216,216,216,1);
         padding: 0 0.4rem;
         font-size:0.28rem;
         line-height:0.9rem;

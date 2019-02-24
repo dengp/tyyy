@@ -15,7 +15,7 @@
             <div class="positionList" v-if="departmentItem.flag">
               <div class="positionItem" v-for="(positionItem, j) in departmentItem.list" :key="j">
                 <div class="positionItemTitle" @click="position(i, j)">
-                  <span class="positionItemName">{{positionItem.name}}</span>
+                  <span class="positionItemName" :class="{active: positionItem.flag}">{{positionItem.name}}</span>
                   <span class="positionItemInfo">{{positionItem.local}} | {{positionItem.num}}名 | {{positionItem.time}}</span>
                 </div>
                 <div class="detail" v-if="positionItem.flag">
@@ -471,7 +471,7 @@ export default {
               display: flex;
               justify-content: space-between;
               align-items: center;
-              box-shadow:0 -0.01rem 0 0 rgba(216,216,216,1);
+              border-bottom: 1px solid #e5e5e5;
               .departmentItemName {
                 font-size:0.28rem;
                 font-weight: 600;
@@ -496,9 +496,12 @@ export default {
                   padding: 0 0.4rem;
                   height: 1rem;
                   background: rgba(250, 250, 250, 1);
-                  box-shadow:0 -0.01rem 0 0 rgba(216,216,216,1);
+                  border-bottom: 1px solid #e5e5e5;
                   .positionItemName {
                     font-size:0.3rem;
+                    &.active {
+                      color: #00A1DF;
+                    }
                   }
                   .positionItemInfo {
                     font-size:0.24rem;
@@ -507,7 +510,7 @@ export default {
                 .detail {
                   background: #ffffff;
                   padding: 0 0.4rem;
-                  box-shadow:0 -0.01rem 0 0 rgba(216,216,216,1);
+                  border-bottom: 1px solid #e5e5e5;
                   font-size:0.26rem;
                   line-height:0.37rem;
                   padding-bottom: 0.5rem;
