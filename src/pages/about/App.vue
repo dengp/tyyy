@@ -52,6 +52,7 @@ export default {
         background:url("~assets/images/about/titlePic.png");
         background-size: 100%;
         h1 {
+          font-size: 0.42rem;
           font-weight:400;
           color:rgba(51,51,51,1);
           line-height: 1.8rem;
