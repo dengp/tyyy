@@ -1,7 +1,8 @@
 <template>
   <div class="main">
     <Header />
-    <div class="con"></div>
+    <div class="con">
+    </div>
     <Footer />
   </div>
 </template>
@@ -17,15 +18,15 @@ export default {
 </script>
 <style lang="less" scoped>
 .main {
-  min-width: 1440px;
-  height: 100%;
-  .con {
-    width: 1440px;
-    height: 810px;
-    background: url("~assets/images/protocol.png");
-    background-size: 100%;
-    margin: 0 auto 40px;
+  width: 100%;
+}
+@media screen and (max-width: 750px) {
+  .main {
+    width: 100%;
+    padding-top: 1.2rem;
+    .con {
+      
+    }
   }
 }
 </style>
-

@@ -4,7 +4,7 @@
       <div class="list">
         <a href="./about.html">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./contact.html">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./join.html">加入我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./protocol.html">用户协议</a>
       </div>
-      <span>©2019 童演童语（北京）教育科技有限公司 版权所有 | 京ICP备13005700<br/>技术支持：北京启航视讯科技有限公司</span>
+      <p>©2019 童演童语（北京）教育科技有限公司 版权所有 | 京ICP备13005700<span>技术支持：北京启航视讯科技有限公司</span></p>
     </div>
   </div>
 </template>
@@ -16,7 +16,6 @@
   .foot {
     max-width: 1000px;
     height: 140px;
-    background: #ffffff;
     margin: 0 auto;
     padding-top: 40px;
     .list {
@@ -27,12 +26,41 @@
         color:rgba(102,102,102,1);
       }
     }
-    span {
+    p {
       font-size:12px;
       color:rgba(102,102,102,1);
       margin-top: 13px;
       display: block;
       line-height:18px;
+      span {
+        display: block;
+      }
+    }
+  }
+}
+@media screen and (max-width: 750px) {
+  .footer {
+    width:7.5rem;
+    height:1.85rem;
+    padding: 0 0.4rem;
+    background:rgba(247,247,247,1);
+    .foot {
+      padding-top: 0.3rem;
+      .list {
+        a {
+          font-size:0.24rem;
+          font-weight:500;
+        }
+      }
+      p {
+        font-size:0.2rem;
+        line-height: 0.28rem;
+        color:rgba(102,102,102,1);
+        margin-top: 0.16rem;
+        span {
+          display: inline;
+        }
+      }
     }
   }
 }

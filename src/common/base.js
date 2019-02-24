@@ -1,4 +1,4 @@
-import Vue from 'vue';
+// import Vue from 'vue';
 import './base.less';
 // import VueLazyload from 'vue-lazyload';
 // Vue.use(VueLazyload, {
@@ -7,3 +7,11 @@ import './base.less';
 //   loading: require('../assets/images/def270.png'),
 //   slient: false
 // });
+(function () {
+    function resize() {
+        const deviceWidth  = document.documentElement.clientWidth;
+        document.documentElement.style.fontSize = (deviceWidth / 7.5) +'px';
+    }
+    resize();
+    window.onresize = resize;
+})();

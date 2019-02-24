@@ -1,12 +1,18 @@
 <template>
-  <div class="header" :class="{hasBg: !bg}">
+  <div class="header" :class="{hasBg: !bg, menuOpen: menuOpen}">
     <div class="head">
       <div class="logo"></div>
+      <div class="menu" @click="menu"></div>
       <ul class="nav">
         <li v-for="(item, index) in navList" :key="index" :class="{current: current === index}"><a :href="`./${item.page}.html`">{{item.title}}</a></li>
         <li><a href="http://www.stagekids.com/"><span>CN&nbsp;</span>/&nbsp;EN</a></li>
       </ul>
     </div>
+    <div class="splice" @click="menu"></div>
+    <ul class="nav" v-if="menuOpen">
+      <li v-for="(item, index) in navList" :key="index" :class="{current: current === index}"><a :href="`./${item.page}.html`">{{item.title}}</a></li>
+      <li><a href="http://www.stagekids.com/"><span>CN&nbsp;</span>/&nbsp;EN</a></li>
+    </ul>
   </div>
 </template>
 <script>
@@ -40,8 +46,19 @@ export default {
           title: '加入我们',
           page: 'join'
         }
-      ]
+      ],
+      menuOpen: false
     };
+  },
+  methods: {
+    menu() {
+      this.menuOpen = !this.menuOpen;
+      if (this.menuOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.removeAttribute('style');
+      }
+    }
   }
 };
 </script>
@@ -51,7 +68,7 @@ export default {
   height: 90px;
   .head {
     max-width: 1240px;
-    height: 90px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -91,7 +108,6 @@ export default {
         background-size: 100%;
       }
       .nav {
-        display: flex;
         li {
           a {
             color: #333333;
@@ -104,7 +120,68 @@ export default {
         }
       }
     }
-    
+  }
+}
+@media screen and (max-width: 750px) {
+  .header {
+    position: fixed;
+    height: 1.2rem;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    &.menuOpen {
+      height: 100%;
+      .splice {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+    }
+    .head {
+      background: #ffffff;
+      height: 1.2rem;
+      padding: 0 0.4rem;
+      box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.05);
+      .logo {
+        width: 1.7rem;
+        height: 0.6rem;
+      }
+      .menu {
+        width: 0.5rem;
+        height: 0.5rem;
+        background: url("~assets/images/icon_menu.png");
+        background-size: 100%;
+      }
+      .nav {
+        display: none;
+      }
+    }
+    .nav {
+      width: 100%;
+      position: absolute;
+      top: 1.2rem;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+      li {
+        height: 0.9rem;
+        border-bottom: 1px solid rgba(216, 216, 216, 1);
+        padding: 0 0.4rem;
+        font-size:0.28rem;
+        line-height:0.9rem;
+        a {
+          width: 100%;
+          display: block;
+          color: #333333;
+        }
+        &.current {
+          a {
+            color: #FF6A65;
+          }
+        }
+      }
+    }
   }
 }
 </style>
