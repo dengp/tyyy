@@ -14,10 +14,8 @@
   height: 140px;
   background: #ffffff;
   .foot {
-    max-width: 1000px;
+    padding: 40px 5.8% 0;
     height: 100%;
-    margin: 0 auto;
-    padding-top: 40px;
     .list {
       color:rgba(102,102,102,1);
       a {
@@ -31,7 +29,7 @@
       color:rgba(102,102,102,1);
       margin-top: 13px;
       display: block;
-      line-height:18px;
+      line-height:17px;
       span {
         display: block;
       }
@@ -54,7 +52,7 @@
       }
       p {
         font-size:0.2rem;
-        line-height:inherit;
+        line-height: 0.28rem;
         color:rgba(102,102,102,1);
         margin-top: 0.16rem;
         span {

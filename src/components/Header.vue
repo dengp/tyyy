@@ -69,7 +69,7 @@ export default {
   width: 100%;
   height: 90px;
   .head {
-    max-width: 1240px;
+    padding: 0 5.8%;
     height: 100%;
     display: flex;
     align-items: center;
