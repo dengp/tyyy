@@ -20,7 +20,6 @@
           <h4>客服邮箱：</h4>
           <a href="mailto:kefu@stagekids.com.cn">kefu@stagekids.com.cn</a>
         </div>
-        <span class="line"></span>
         <h2 class="sc">市场部：</h2>
         <p>
           <span>电话：010-XXX-XXX</span>
@@ -145,12 +144,6 @@ export default {
         padding: 0.3rem 0.4rem 0;
         background: none;
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.05);
-        .line {
-          display: block;
-          height:0.02rem;
-          background:rgba(216,216,216,1);
-          margin-top: 0.4rem;
-        }
         h2 {
           font-size:0.32rem;
           font-weight:500;
@@ -171,6 +164,14 @@ export default {
         }
         .contact {
           display: block;
+        }
+        .contact {
+          display: block;
+          &.mail {
+            margin-top: 8px;
+            padding-bottom: 0.4rem;
+            border-bottom: 0.02rem solid #d8d8d8;
+          }
         }
         h4 {
           font-size:0.28rem;

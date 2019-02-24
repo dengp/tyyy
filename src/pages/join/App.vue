@@ -542,7 +542,7 @@ export default {
                   height:50px;
                   background:rgba(255,255,255,1);
                   border-radius:8px;
-                  border: 2px solid rgba(0,161,223,1);
+                  border: 0.02rem solid rgba(0,161,223,1);
                   margin-top: 19px;
                   font-size:18px;
                   color:rgba(0,161,223,1);
