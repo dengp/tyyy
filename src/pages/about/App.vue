@@ -5,7 +5,7 @@
       <div class="titleBox">
         <h1>关于我们</h1>
       </div>
-      <div class="atricle">
+      <div class="conWrap">
         <h3>品牌故事</h3>
         <p>未来的舞台是一个没有边界的舞台。 唯一的限制是想象力，甚至是一个小小的声音，都可以在全球范围内，制造巨大的涟漪。 由Stagekids培育的孩子们已经准备好面对全球性的未来。 通过艺术教育的旅程，他们敢于去梦想、去发现，成为有创意、有自信的沟通者。</p>
         <img src="../../assets/images/about/pic.png" />
@@ -59,7 +59,7 @@ export default {
           margin-bottom: 0.2rem;
         }
       }
-      .atricle {
+      .conWrap {
         padding: 0.3rem 0.4rem 0;
         h3 {
           font-size:0.28rem;

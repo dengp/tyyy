@@ -15,7 +15,7 @@
   background: #ffffff;
   .foot {
     max-width: 1000px;
-    height: 140px;
+    height: 100%;
     margin: 0 auto;
     padding-top: 40px;
     .list {
@@ -54,7 +54,7 @@
       }
       p {
         font-size:0.2rem;
-        line-height: 0.28rem;
+        line-height:inherit;
         color:rgba(102,102,102,1);
         margin-top: 0.16rem;
         span {

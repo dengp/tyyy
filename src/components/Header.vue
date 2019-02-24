@@ -53,11 +53,13 @@ export default {
   methods: {
     menu() {
       this.menuOpen = !this.menuOpen;
-      if (this.menuOpen) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.removeAttribute('style');
-      }
+      // if (this.menuOpen) {
+      //   document.documentElement.style.overflow = document.body.style.overflow = 'hidden';
+      //   document.documentElement.style.height = document.body.style.height = '100%';
+      // } else {
+      //   document.body.removeAttribute('style');
+      //   document.documentElement.style.overflow = document.documentElement.style.height = '';
+      // }
     }
   }
 };
@@ -131,6 +133,7 @@ export default {
     z-index: 2;
     &.menuOpen {
       height: 100%;
+      background: none;
       .splice {
         width: 100%;
         height: 100%;
@@ -141,7 +144,7 @@ export default {
       background: #ffffff;
       height: 1.2rem;
       padding: 0 0.4rem;
-      box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.05);
+      box-shadow: 0 0.05rem 0.2rem 0 rgba(0,0,0,0.05);
       .logo {
         width: 1.7rem;
         height: 0.6rem;
@@ -166,7 +169,7 @@ export default {
       background: #ffffff;
       li {
         height: 0.9rem;
-        border-bottom: 1px solid rgba(216, 216, 216, 1);
+        box-shadow:0 0.01rem 0 0 rgba(216,216,216,1);
         padding: 0 0.4rem;
         font-size:0.28rem;
         line-height:0.9rem;
