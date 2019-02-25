@@ -1,7 +1,7 @@
 <template>
-  <div class="header" :class="{hasBg: !bg, menuOpen: menuOpen}">
+  <div class="header" :class="{hasBg: !bg || hasBg, menuOpen: menuOpen}">
     <div class="head">
-      <div class="logo"></div>
+      <a class="logo" href="./index.html"></a>
       <div class="menu" @click="menu"></div>
       <ul class="nav">
         <li v-for="(item, index) in navList" :key="index" :class="{current: current === index}"><a :href="`./${item.page}.html`">{{item.title}}</a></li>
@@ -25,6 +25,10 @@ export default {
     bg: {
       type: String,
       default: null
+    },
+    hasBg: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -66,6 +70,10 @@ export default {
 </script>
 <style lang="less" scoped>
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
   width: 100%;
   height: 90px;
   .head {
@@ -126,11 +134,7 @@ export default {
 }
 @media screen and (max-width: 750px) {
   .header {
-    position: fixed;
     height: 1.2rem;
-    top: 0;
-    left: 0;
-    z-index: 2;
     &.menuOpen {
       height: 100%;
       background: none;

@@ -2,7 +2,7 @@
   <div class="main">
     <Banner />
     <div class="area_top">
-      <Header :current="0" bg='no' />
+      <Header :current="0" bg='no' :hasBg="showHeaderBg" />
       <TopAreaInfo />
     </div>
     <TopEwm v-if="showTopEwm" />
@@ -32,7 +32,8 @@ export default {
   data() {
     return {
       showTopEwm: false,
-      showFixed: false
+      showFixed: false,
+      showHeaderBg: false
     }
   },
   created() {
@@ -45,10 +46,20 @@ export default {
       } else {
         this.showFixed = false;
       }
+      if(curTop >= curHeight - 90){
+        this.showHeaderBg = true;
+      } else {
+        this.showHeaderBg = false;
+      }
     }
   }
 };
 </script>
+<style>
+body {
+  background: #f0f0f0;
+}
+</style>
 <style lang="less" scoped>
 .main {
   min-width: 1440px;

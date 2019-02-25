@@ -4,7 +4,7 @@
     <div class="con">
       <div class="titleBox">
         <h1>联系我们</h1>
-        <img src="../../assets/images/contact/titlePicBig.png" />
+        <img src="../../assets/images/titlePicContactBig.png" />
       </div>
       <div class="conWrap">
         <h3>童演童语（北京）教育科技有限公司</h3>
@@ -51,6 +51,7 @@ export default {
 .main {
   width: 100%;
   color:rgba(51,51,51,1);
+  padding-top: 90px;
   .con {
     background: #f0f0f0;
     padding-bottom: 50px;
@@ -61,7 +62,6 @@ export default {
       justify-content: center;
       align-items: center;  
       img {
-        width: 1440px;
         height: 180px;
       }
       h1 {
@@ -129,7 +129,7 @@ export default {
       background: #ffffff;
       .titleBox {
         height:1.8rem;
-        background:url("~assets/images/contact/titlePic.png");
+        background:url("~assets/images/titlePicContact.png");
         background-size: 100%;
         h1 {
           font-size: 0.42rem;

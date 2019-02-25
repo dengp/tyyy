@@ -4,7 +4,7 @@
     <div class="con">
       <div class="titleBox">
         <h1>加入我们</h1>
-        <img src="../../assets/images/join/titlePicBig.png" />
+        <img src="../../assets/images/titlePicJoinBig.png" />
       </div>
       <div class="conWrap">
         <div class="departmentList">
@@ -443,6 +443,7 @@ export default {
 .main {
   width: 100%;
   color:rgba(51,51,51,1);
+  padding-top: 90px;
   .con {
     background: #f0f0f0;
     padding-bottom: 50px;
@@ -453,7 +454,6 @@ export default {
       justify-content: center;
       align-items: center;  
       img {
-        width: 1440px;
         height: 180px;
       }
       h1 {
@@ -486,11 +486,11 @@ export default {
             .icon_close {
               width: 36px;
               height: 36px;
-              background: url("~assets/images/join/icon_close.png");
+              background: url("~assets/images/icon_close.png");
               background-size: 100%;
             }
             .icon_open {
-              background: url("~assets/images/join/icon_open.png");
+              background: url("~assets/images/icon_open.png");
               background-size: 100%;
             }
           }
@@ -542,7 +542,7 @@ export default {
                   height:50px;
                   background:rgba(255,255,255,1);
                   border-radius:8px;
-                  border: 0.02rem solid rgba(0,161,223,1);
+                  border: 2px solid rgba(0,161,223,1);
                   margin-top: 19px;
                   font-size:18px;
                   color:rgba(0,161,223,1);
@@ -565,7 +565,7 @@ export default {
       background: #ffffff;
       .titleBox {
         height:1.8rem;
-        background:url("~assets/images/join/titlePic.png");
+        background:url("~assets/images/titlePicJoin.png");
         background-size: 100%;
         h1 {
           font-size: 0.42rem;
@@ -627,6 +627,7 @@ export default {
                     margin-top: 0.5rem;
                     font-size:0.3rem;
                     line-height:0.8rem;
+                    border: 0.02rem solid rgba(0,161,223,1);
                   }
                 }
               }

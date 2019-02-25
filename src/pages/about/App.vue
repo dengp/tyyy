@@ -4,7 +4,7 @@
     <div class="con">
       <div class="titleBox">
         <h1>关于我们</h1>
-        <img src="../../assets/images/about/titlePicBig.png" />
+        <img src="../../assets/images/titlePicAboutBig.png" />
       </div>
       <div class="conWrap">
         <h3>品牌故事</h3>
@@ -15,7 +15,7 @@
           <span>由Stagekids培育的孩子们已经准备好面对全球性的未来。</span>
           <span>通过艺术教育的旅程，他们敢于去梦想、去发现，成为有创意、有自信的沟通者。</span>
         </p>
-        <img src="../../assets/images/about/pic.png" />
+        <img src="../../assets/images/pic.png" />
         <h3>品牌愿景</h3>
         <p>
           <span>培养儿童成为全球沟通者/传播者。 通过艺术教育的乐趣与心灵的启迪之旅，学生可以获得流利的英语语言能力。</span>
@@ -49,6 +49,7 @@ export default {
 .main {
   width: 100%;
   color:rgba(51,51,51,1);
+  padding-top: 90px;
   .con {
     background: #f0f0f0;
     padding-bottom: 50px;
@@ -59,7 +60,6 @@ export default {
       justify-content: center;
       align-items: center;  
       img {
-        width: 1440px;
         height: 180px;
       }
       h1 {
@@ -109,7 +109,7 @@ export default {
       background: #ffffff;
       .titleBox {
         height:1.8rem;
-        background:url("~assets/images/about/titlePic.png");
+        background:url("~assets/images/titlePicAbout.png");
         background-size: 100%;
         h1 {
           font-size: 0.42rem;

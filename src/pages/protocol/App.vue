@@ -31,6 +31,7 @@ export default {
 .main {
   width: 100%;
   color:rgba(51,51,51,1);
+  padding-top: 90px;
   .con {
     background: #f0f0f0;
     padding-bottom: 50px;

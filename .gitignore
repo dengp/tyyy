@@ -1,6 +1,7 @@
 node_modules
 *.log*
 dist
+static
 .DS_Store
 .vscode
 .idea

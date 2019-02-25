@@ -10,7 +10,7 @@ const rootDir = path.resolve(__dirname, '..');
 const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = function(userConfig = {}, isDev = true) {
-  const limit = userConfig.limit || 18000000;
+  const limit = userConfig.limit || 1;
   const assetsPath = userConfig.assetsPath || 'static';
   const jsFileName = '[name].js';
   const cssFileName = '[name].css';
@@ -62,9 +62,16 @@ module.exports = function(userConfig = {}, isDev = true) {
             'style-loader',
             'css-loader',
             'postcss-loader'
-          ] : [MiniCssExtractPlugin.loader,
+          ] : [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                publicPath: '../'
+              }
+            },
             'css-loader',
-            'postcss-loader']
+            'postcss-loader',
+          ]
         },
         {
           test: /\.json$/,
@@ -79,10 +86,17 @@ module.exports = function(userConfig = {}, isDev = true) {
           test: /\.less$/,
           use: isDev ? ['style-loader', 'css-loader',
             'less-loader',
-            'postcss-loader'] : [MiniCssExtractPlugin.loader,
-            'css-loader',
-            'postcss-loader',
-            'less-loader']
+            'postcss-loader'] : [
+              {
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                  publicPath: '../'
+                }
+              },
+              'css-loader',
+              'postcss-loader',
+              'less-loader'
+            ]
         },
         {
           test: /\.vue$/,
