@@ -24,8 +24,8 @@ module.exports = function(userConfig = {}, isDev = true) {
     output: {
       path: path.posix.join(rootDir, 'dist'),
       publicPath: './',
-      filename: path.posix.join(assetsPath, jsFileName),
-      chunkFilename: path.posix.join(assetsPath, jsFileName)
+      filename: path.posix.join(assetsPath, 'js', jsFileName),
+      chunkFilename: path.posix.join(assetsPath, 'js', jsFileName)
     },
     resolve: {
       extensions: ['.js', '.json', '.vue', '.css'],
@@ -48,7 +48,7 @@ module.exports = function(userConfig = {}, isDev = true) {
           loader: 'url-loader',
           options: {
             limit: limit,
-            name: path.posix.join(assetsPath, picName)
+            name: path.posix.join(assetsPath, 'images', picName)
           }
         },
         {
@@ -66,7 +66,7 @@ module.exports = function(userConfig = {}, isDev = true) {
             {
               loader: MiniCssExtractPlugin.loader,
               options: {
-                publicPath: '../'
+                publicPath: '../../'
               }
             },
             'css-loader',
@@ -90,7 +90,7 @@ module.exports = function(userConfig = {}, isDev = true) {
               {
                 loader: MiniCssExtractPlugin.loader,
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               'css-loader',
@@ -125,7 +125,7 @@ module.exports = function(userConfig = {}, isDev = true) {
       }),
       new MiniCssExtractPlugin({
         name: 'common',
-        filename: path.posix.join(assetsPath, cssFileName)
+        filename: path.posix.join(assetsPath, 'css', cssFileName)
       }),
       new webpack.optimize.SplitChunksPlugin({
         chunks: 'async',

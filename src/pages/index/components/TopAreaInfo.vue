@@ -13,6 +13,7 @@
       <div class="go" @click="go">
         <span></span>
       </div>
+      <img class="mobile" src="../../../assets/images/iPhoneX.png" />
     </div>
   </div>
 </template>
@@ -94,6 +95,13 @@ export default {
         animation: myfirst 2s ease-in-out infinite;
         cursor: pointer;
       }
+    }
+    .mobile {
+      width: 252px;
+      height: 500px;
+      position: absolute;
+      left: 222px;
+      bottom: -29px;
     }
   }
 }

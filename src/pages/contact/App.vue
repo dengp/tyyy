@@ -52,8 +52,12 @@ export default {
   width: 100%;
   color:rgba(51,51,51,1);
   padding-top: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  background: #f0f0f0;
   .con {
-    background: #f0f0f0;
     padding-bottom: 50px;
     .titleBox {
       width:100%;
@@ -69,6 +73,7 @@ export default {
         font-size:42px;
         font-weight:400;
         line-height:59px;
+        color: #ffffff;
       }
     }
     .conWrap {
@@ -124,9 +129,9 @@ export default {
 @media screen and (max-width: 750px) {
   .main {
     padding-top: 1.2rem;
+    background: #ffffff;
     .con {
       padding-bottom: 0.5rem;
-      background: #ffffff;
       .titleBox {
         height:1.8rem;
         background:url("~assets/images/titlePicContact.png");

@@ -444,8 +444,12 @@ export default {
   width: 100%;
   color:rgba(51,51,51,1);
   padding-top: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  background: #f0f0f0;
   .con {
-    background: #f0f0f0;
     padding-bottom: 50px;
     .titleBox {
       width:100%;
@@ -461,6 +465,7 @@ export default {
         font-size:42px;
         font-weight:400;
         line-height:59px;
+        color: #ffffff;
       }
     }
     .conWrap {
@@ -472,6 +477,11 @@ export default {
       padding: 0 30px;
       .departmentList {
         .departmentItem {
+          &:last-child {
+            .positionList {
+              padding-bottom: 30px;
+            }
+          }
           .departmentItemTitle {
             padding: 0 20px 0 10px;
             height: 80px;
@@ -560,9 +570,9 @@ export default {
 @media screen and (max-width: 750px) {
   .main {
     padding-top: 1.2rem;
+    background: #ffffff;
     .con {
       padding-bottom: 0;
-      background: #ffffff;
       .titleBox {
         height:1.8rem;
         background:url("~assets/images/titlePicJoin.png");
@@ -582,6 +592,11 @@ export default {
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.05);
         .departmentList {
           .departmentItem {
+            &:last-child {
+              .positionList {
+                padding-bottom: 0.3rem;
+              }
+            }
             .departmentItemTitle {
               padding: 0 0.4rem;
               height: 1rem;

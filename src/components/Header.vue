@@ -85,6 +85,7 @@ export default {
     position: relative;
     z-index: 1;
     margin: 0 auto;
+    box-shadow:0px 5px 20px 0px rgba(0,0,0,0.05);
     .logo {
       width: 141px;
       height: 50px;
@@ -181,6 +182,9 @@ export default {
           width: 100%;
           display: block;
           color: #333333;
+          span {
+            color: #FF6A65;
+          }
         }
         &.current {
           a {

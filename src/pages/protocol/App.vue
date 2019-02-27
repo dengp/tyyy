@@ -32,8 +32,12 @@ export default {
   width: 100%;
   color:rgba(51,51,51,1);
   padding-top: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  background: #f0f0f0;
   .con {
-    background: #f0f0f0;
     padding-bottom: 50px;
     .titleBox {
       height: 160px;
@@ -68,8 +72,8 @@ export default {
 @media screen and (max-width: 750px) {
   .main {
     padding-top: 1.2rem;
+    background: #ffffff;
     .con {
-      background: #ffffff;
       padding: 0;
       .titleBox {
         margin: 0 0.4rem;
