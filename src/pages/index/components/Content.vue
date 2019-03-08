@@ -212,7 +212,7 @@ export default {
   .content_title {
     text-align: center;
     h3 {
-      font-size:40px;
+      font-size:36px;
       color: #333333;
     }
     p {
@@ -295,7 +295,7 @@ export default {
       right: 45px;
       bottom: 230px;
       h4 {
-        font-size:40px;
+        font-size:36px;
       }
       ul {
         margin-top: 40px;
@@ -460,7 +460,7 @@ export default {
       color: #ffffff;
       margin-left: 100px;
       h3 {
-        font-size:40px;
+        font-size:36px;
       }
       .desc {
         display: block;
@@ -613,7 +613,7 @@ export default {
       right: 140px;
       bottom: 221px;
       h4 {
-        font-size:40px;
+        font-size:36px;
       }
       .text {
         height: 234px;

@@ -6,8 +6,8 @@
         <h1>关于我们</h1>
         <img src="../../assets/images/titlePicAboutBig.png" />
       </div>
-      <div class="conWrap">
-        <h3>品牌故事</h3>
+      <div class="conWrap" v-html="content">
+        <!-- <h3>品牌故事</h3>
         <p>
           <span>未来的舞台是一个没有边界的舞台。 </span>
           <span>唯一的限制是想象力，甚至是一个小小的声音，都可以在全球范围内，制造巨大的涟漪。</span> 
@@ -29,7 +29,7 @@
           <span>· 无需拥有英语基础，从零开始的孩子无障碍开启</span>
           <span>· 不同的级别适应各年龄段孩子需求</span>
           <span>· 支持在线和缓存模式，可在任何智能设备上收听，全平台覆盖。收听时间和空间不受限制，随时随地，无需预约</span>
-        </p>
+        </p> -->
       </div>
     </div>
     <Footer />
@@ -38,14 +38,30 @@
 <script>
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import { request } from '../../api/request';
 export default {
   components: {
     Header,
     Footer
+  },
+  data() {
+    return {
+      content: ''
+    };
+  },
+  mounted() {
+    request({
+      url: 'https://lsfh.vtanet.com.cn/StageKids/client/content.php?act=getwebcontent',
+      data: {
+      'contentid': 6
+      }
+    }).then((response) => {
+      this.content = response.data.rows[0].content;
+    });
   }
 };
 </script>
-<style lang="less" scoped>
+<style lang="less">
 .main {
   width: 100%;
   color:rgba(51,51,51,1);

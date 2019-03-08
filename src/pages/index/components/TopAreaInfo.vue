@@ -1,7 +1,7 @@
 <template>
   <div class="TopAreaInfo">
     <div class="info">
-      <h2>Stage Your Future</h2>
+      <h2 class="eng">Stage Your Future</h2>
       <h2>展现你的未来</h2>
       <div class="icon">
         <span class="wx" @click="showTopEwm"></span>
@@ -49,11 +49,14 @@ export default {
     align-items: flex-end;
     justify-content: flex-end;
     h2 {
-      font-size:72px;
+      font-size:48px;
       font-weight:bold;
       color:rgba(255,255,255,1);
       font-family: MicrosoftYaHei-Bold;
       margin: 0 120px 17px 0;
+      &.eng {
+        font-size: 60px;
+      }
     }
     .icon {
       display: flex;

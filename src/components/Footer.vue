@@ -20,7 +20,7 @@
     .list {
       color:rgba(102,102,102,1);
       a {
-        font-size:16px;
+        font-size:14px;
         font-weight:600;
         color:rgba(102,102,102,1);
       }
