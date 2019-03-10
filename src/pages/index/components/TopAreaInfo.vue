@@ -1,19 +1,19 @@
 <template>
   <div class="TopAreaInfo">
     <div class="info">
-      <h2 class="eng">Stage Your Future</h2>
-      <h2>展现你的未来</h2>
+      <h2 class="eng animated bounce">Stage Your Future</h2>
+      <h2 class="cn animated bounce">展现你的未来</h2>
       <div class="icon">
-        <span class="wx" @click="showTopEwm"></span>
         <div class="plam">
           <span class="ios"></span>
           <span class="android"></span>
         </div>
+        <span class="wx" @click="showTopEwm"></span>
       </div>
       <div class="go" @click="go">
         <span></span>
       </div>
-      <img class="mobile" src="../../../assets/images/iPhoneX.png" />
+      <img class="mobile animated bounceInUp" src="../../../assets/images/iPhoneX.png" />
     </div>
   </div>
 </template>
@@ -24,10 +24,10 @@ export default {
     go() {
       // document.body.style.overflow = 'scroll';
       const sTop = document.documentElement.scrollTop || document.body.scrollTop;
-      scrollTop(window, sTop, document.body.clientHeight, 500, 'linear');
+      scrollTop(window, sTop, document.body.clientHeight - 90, 500, 'linear');
     },
     showTopEwm() {
-      this.$parent.showTopEwm = true;
+      this.$parent.$parent.showTopEwm = true;
     }
   }
 };
@@ -41,6 +41,7 @@ export default {
   height: 100%;
   top: 0px;
   left: 0px;
+  overflow: hidden;
   .info {
     min-width: 1240px;
     height: 100%;
@@ -48,14 +49,17 @@ export default {
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
+    position: relative;
     h2 {
       font-size:48px;
-      font-weight:bold;
+      font-weight:400;
       color:rgba(255,255,255,1);
       font-family: MicrosoftYaHei-Bold;
       margin: 0 120px 17px 0;
+      animation-duration: 1s;
       &.eng {
         font-size: 60px;
+        font-weight: bold;
       }
     }
     .icon {
@@ -81,7 +85,7 @@ export default {
         height: 50px;
         background: url("~assets/images/icon_wx.png");
         background-size: 100%;
-        margin-right: 20px;
+        margin-left: 20px;
         cursor: pointer;
       }
     }
@@ -104,7 +108,7 @@ export default {
       height: 500px;
       position: absolute;
       left: 222px;
-      bottom: -29px;
+      bottom: 10px;
     }
   }
 }

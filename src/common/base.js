@@ -1,5 +1,7 @@
-// import Vue from 'vue';
+import Vue from 'vue';
 import './base.less';
+import animate from 'animate.css';
+Vue.use(animate);
 // import VueLazyload from 'vue-lazyload';
 // Vue.use(VueLazyload, {
 //   preLoad: 1.3,

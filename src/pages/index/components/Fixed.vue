@@ -3,7 +3,7 @@
     <div class="goTop" @click="toTop">
       <div class="icon_top"></div>
     </div>
-    <div class="ewmBox">
+    <div class="ewmBox" @click="showTopEwm">
       <div class="ewm"></div>
     </div>
   </div>
@@ -15,6 +15,9 @@ export default {
     toTop() {
       const sTop = document.documentElement.scrollTop || document.body.scrollTop;
       scrollTop(window, sTop, 0, 500, 'linear');
+    },
+    showTopEwm() {
+      this.$parent.showTopEwm = true;
     }
   }
 };
@@ -51,27 +54,12 @@ export default {
     width: 50px;
     height: 50px;
     margin-top: 20px;
+    cursor: pointer;
     .ewm {
       width: 50px;
       height: 50px;
       background: url("~assets/images/icon_wx.png");
       background-size: 100%;
-    }
-    &:hover {
-      width: 120px;
-      height: 140px;
-      background:rgba(255,255,255,1);
-      box-shadow:0px 0px 20px 0px rgba(0, 0, 0, 0.05);
-      border-radius:8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .ewm {
-        width: 100px;
-        height: 119px;
-        background: url("~assets/images/ewm2.png");
-        background-size: 100%;
-      } 
     }
   }
 }

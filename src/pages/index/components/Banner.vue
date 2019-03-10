@@ -7,7 +7,7 @@
 export default {
   data() {
     return {
-      picList: ['1', '2', '3'],
+      picList: ['1', '2', '3', '4'],
       cur: 0
     };
   },

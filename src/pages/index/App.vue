@@ -1,12 +1,14 @@
 <template>
   <div class="main">
-    <Banner />
-    <div class="area_top">
-      <Header :current="0" bg='no' :hasBg="showHeaderBg" />
-      <TopAreaInfo />
-    </div>
+    <Header :current="0" bg='no' :hasBg="showHeaderBg" />
+    <Parallax :fixed="true">
+      <Banner />
+      <div class="area_top">
+        <TopAreaInfo />
+      </div>
+    </Parallax>
     <TopEwm v-if="showTopEwm" />
-    <Content />
+    <Content :curTop="curTop" />
     <Footer />
     <Fixed v-if="showFixed" />
   </div>
@@ -19,6 +21,7 @@ import TopEwm from './components/TopEwm';
 import Content from './components/Content';
 import Footer from '../../components/Footer';
 import Fixed from './components/Fixed';
+import Parallax from 'vue-parallaxy';
 export default {
   components: {
     Header,
@@ -27,26 +30,29 @@ export default {
     TopEwm,
     Content,
     Footer,
-    Fixed
+    Fixed,
+    Parallax
   },
   data() {
     return {
       showTopEwm: false,
       showFixed: false,
-      showHeaderBg: false
+      showHeaderBg: false,
+      curTop: 0
     }
   },
   created() {
     window.onscroll = () => {
       const curTop = document.documentElement.scrollTop || document.body.scrollTop;
       const curHeight = document.documentElement.clientHeight || document.body.clientHeight;
-      console.log(curTop>=curHeight)
-      if(curTop >= curHeight){
+      const pos = curHeight - 90;
+      this.curTop = curTop;
+      if(curTop >= pos){
         this.showFixed = true;
       } else {
         this.showFixed = false;
       }
-      if(curTop >= curHeight - 90){
+      if(curTop >= pos){
         this.showHeaderBg = true;
       } else {
         this.showHeaderBg = false;

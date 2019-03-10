@@ -15,6 +15,8 @@
 .footer {
   width: 100%;
   background: #ffffff;
+  position: relative;
+  z-index: 1;
   .foot {
     padding: 40px 5.8% 40px 5.8%;
     .list {

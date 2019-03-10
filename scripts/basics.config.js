@@ -52,6 +52,12 @@ module.exports = function(userConfig = {}, isDev = true) {
           }
         },
         {
+          test: /\.(mov|mp4)$/,
+          use: [
+            'file-loader'
+          ]
+        },
+        {
           test: /\.html$/,
           loaders: ['html-loader?minimize=false'],
           exclude: /node_modules|bower_components/

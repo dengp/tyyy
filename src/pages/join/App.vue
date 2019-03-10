@@ -47,19 +47,366 @@ export default {
   },
   data() {
     return {
-      departmentList: []
+      departmentList: [
+        {
+          name: '技术部',
+          list: [
+            {
+              name: 'iOS工程师',
+              local: '北京',
+              num: '3',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            },
+            {
+              name: 'Android工程师',
+              local: '北京',
+              num: '3',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            },
+            {
+              name: 'Java工程师',
+              local: '四川成都',
+              num: '若干',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            },
+            {
+              name: 'PHP工程师',
+              local: '北京',
+              num: '10',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            }
+          ]
+        },
+        {
+          name: '人力资源部',
+          list: [
+            {
+              name: 'iOS工程师',
+              local: '北京',
+              num: '3',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            },
+            {
+              name: 'Android工程师',
+              local: '北京',
+              num: '3',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            },
+            {
+              name: 'Java工程师',
+              local: '四川成都',
+              num: '若干',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            },
+            {
+              name: 'PHP工程师',
+              local: '北京',
+              num: '10',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            }
+          ]
+        },
+        {
+          name: '市场部',
+          list: [
+            {
+              name: 'iOS工程师',
+              local: '北京',
+              num: '3',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            },
+            {
+              name: 'Android工程师',
+              local: '北京',
+              num: '3',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            },
+            {
+              name: 'Java工程师',
+              local: '四川成都',
+              num: '若干',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            },
+            {
+              name: 'PHP工程师',
+              local: '北京',
+              num: '10',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            }
+          ]
+        },
+        {
+          name: '销售管理部',
+          list: [
+            {
+              name: 'iOS工程师',
+              local: '北京',
+              num: '3',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            },
+            {
+              name: 'Android工程师',
+              local: '北京',
+              num: '3',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            },
+            {
+              name: 'Java工程师',
+              local: '四川成都',
+              num: '若干',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            },
+            {
+              name: 'PHP工程师',
+              local: '北京',
+              num: '10',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            }
+          ]
+        },
+        {
+          name: '产品运营部',
+          list: [
+            {
+              name: 'iOS工程师',
+              local: '北京',
+              num: '3',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            },
+            {
+              name: 'Android工程师',
+              local: '北京',
+              num: '3',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            },
+            {
+              name: 'Java工程师',
+              local: '四川成都',
+              num: '若干',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            },
+            {
+              name: 'PHP工程师',
+              local: '北京',
+              num: '10',
+              time: '2019-01-01',
+              work: [
+                '负责核心项目的开发和维护',
+                '负责APP开发过程中的资源调整，和产品评审',
+                '负责团队内技术辅导和团队内成员成长'
+              ],
+              request: [
+                '3年以上iOS开发经验，有大型互联网工作经验者优先',
+                '对网络框架AFNetworking, SDWebImage有一定的了解；对设计模式MVC, MVVM有自己的理解',
+                '对APP性能检测，Crash方案，无埋点方案有一定的认知；对APP架构，解耦方案等有一定的认知'
+              ]
+            }
+          ]
+        }
+      ]
     };
   },
   mounted() {
-    request({
-      url: 'https://lsfh.vtanet.com.cn/StageKids/client/content.php?act=getwebcontent',
-      data: {
-      'contentid': 6
-      }
-    }).then((response) => {
-      this.content = response.data.rows[0].content;
-      this.initDeparmentList();
-    });
+    this.initDeparmentList();
+    // request({
+    //   url: 'https://lsfh.vtanet.com.cn/StageKids/client/content.php?act=getwebcontent',
+    //   data: {
+    //   'contentid': 6
+    //   }
+    // }).then((response) => {
+    //   this.content = response.data.rows[0].content;
+    //   this.initDeparmentList();
+    // });
   },
   methods: {
     department(i) {
