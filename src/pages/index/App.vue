@@ -1,16 +1,19 @@
 <template>
-  <div class="main">
-    <Header :current="0" bg='no' :hasBg="showHeaderBg" />
-    <Parallax :fixed="true">
-      <Banner />
-      <div class="area_top">
-        <TopAreaInfo />
-      </div>
-    </Parallax>
-    <TopEwm v-if="showTopEwm" />
-    <Content :curTop="curTop" />
-    <Footer />
-    <Fixed v-if="showFixed" />
+  <div>
+    <loading v-if="loading" />
+    <div class="main" v-else>
+      <Header :current="0" bg='no' :hasBg="showHeaderBg" />
+      <Parallax :fixed="true">
+        <Banner />
+        <div class="area_top">
+          <TopAreaInfo />
+        </div>
+      </Parallax>
+      <TopEwm v-if="showTopEwm" />
+      <Content :curTop="curTop" />
+      <Footer />
+      <Fixed v-if="showFixed" />
+    </div>
   </div>
 </template>
 <script>
@@ -22,6 +25,7 @@ import Content from './components/Content';
 import Footer from '../../components/Footer';
 import Fixed from './components/Fixed';
 import Parallax from 'vue-parallaxy';
+import loading from '../../components/loading';
 export default {
   components: {
     Header,
@@ -31,17 +35,20 @@ export default {
     Content,
     Footer,
     Fixed,
-    Parallax
+    Parallax,
+    loading
   },
   data() {
     return {
       showTopEwm: false,
       showFixed: false,
       showHeaderBg: false,
-      curTop: 0
+      curTop: 0,
+      loading: true
     }
   },
   created() {
+    this.imgLoad();
     window.onscroll = () => {
       const curTop = document.documentElement.scrollTop || document.body.scrollTop;
       const curHeight = document.documentElement.clientHeight || document.body.clientHeight;
@@ -57,6 +64,30 @@ export default {
       } else {
         this.showHeaderBg = false;
       }
+    }
+  },
+  methods: {
+    imgLoad() {
+      let mulitImg = [
+        'https://lsfh.vtanet.com.cn/WebStie/static/images/banner1.png',
+        'https://lsfh.vtanet.com.cn/WebStie/static/images/banner2.png',
+        'https://lsfh.vtanet.com.cn/WebStie/static/images/banner3.png',
+        'https://lsfh.vtanet.com.cn/WebStie/static/images/banner4.png'
+      ];
+      let promiseAll = [], img = [], imgTotal = mulitImg.length;
+      for(let i = 0 ; i < imgTotal ; i++){
+          promiseAll[i] = new Promise((resolve, reject)=>{
+              img[i] = new Image()
+              img[i].src = mulitImg[i]
+              img[i].onload = function(){
+                    //第i张加载完成
+                    resolve(img[i])
+              }
+          })
+      }
+      Promise.all(promiseAll).then((img)=>{
+        this.loading = false;
+      });
     }
   }
 };

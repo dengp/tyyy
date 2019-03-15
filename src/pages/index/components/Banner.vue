@@ -1,6 +1,6 @@
 <template>
   <div class="banner">
-    <img v-for="(item, index) in picList" :key="index" :class="{cur: cur === index}" :src="require(`../../../assets/images/banner${item}.png`)" />
+    <img v-for="(item, index) in picList" :key="index" :class="{cur: cur === index}" :src="`https://lsfh.vtanet.com.cn/WebStie/static/images/banner${index+1}.png`" />
   </div>
 </template>
 <script>
