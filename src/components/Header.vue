@@ -143,13 +143,14 @@ export default {
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 0px;
+        left: 0px;
       }
     }
     .head {
-      background: #ffffff;
       height: 1.2rem;
       padding: 0 0.4rem;
-      box-shadow: 0 0.05rem 0.2rem 0 rgba(0,0,0,0.05);
       .logo {
         width: 1.7rem;
         height: 0.6rem;
@@ -157,7 +158,7 @@ export default {
       .menu {
         width: 0.5rem;
         height: 0.5rem;
-        background: url("~assets/images/icon_menu.png");
+        background: url("~assets/images/icon_menu_white.png");
         background-size: 100%;
       }
       .nav {
@@ -171,17 +172,16 @@ export default {
       left: 0;
       display: flex;
       flex-direction: column;
-      background: #ffffff;
       li {
         height: 0.9rem;
-        border-bottom: 1px solid #e5e5e5;
         padding: 0 0.4rem;
         font-size:0.28rem;
         line-height:0.9rem;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
         a {
           width: 100%;
           display: block;
-          color: #333333;
+          color: #ffffff;
           span {
             color: #FF6A65;
           }
@@ -189,6 +189,25 @@ export default {
         &.current {
           a {
             color: #FF6A65;
+          }
+        }
+      }
+    }
+    &.hasBg {
+      .head {
+        background: #ffffff;
+        box-shadow: 0 0.05rem 0.2rem 0 rgba(0,0,0,0.05);
+        .menu {
+          background: url("~assets/images/icon_menu.png");
+          background-size: 100%;
+        }
+      }
+      .nav {
+        background: #ffffff;
+        li {
+          border-bottom: 1px solid #e5e5e5;
+          a {
+            color: #333333;
           }
         }
       }

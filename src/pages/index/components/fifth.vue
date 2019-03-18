@@ -55,7 +55,6 @@ export default {
   },
   computed: {
     circleRoate() {
-      console.log(this.curTop, this.introBoxPos)
       return this.curTop >= this.introBoxPos;
     }
   },

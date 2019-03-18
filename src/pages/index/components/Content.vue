@@ -39,5 +39,12 @@ export default {
     position: relative;
   }
 }
+@media screen and (max-width: 750px) {
+  .contentBox {
+    .content {
+      width: 100%;
+    }
+  }
+}
 </style>
 

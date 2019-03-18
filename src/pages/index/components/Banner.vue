@@ -1,6 +1,6 @@
 <template>
   <div class="banner">
-    <img v-for="(item, index) in picList" :key="index" :class="{cur: cur === index}" :src="`https://lsfh.vtanet.com.cn/WebStie/static/images/banner${index+1}.png`" />
+    <img v-for="(item, index) in picList" :key="index" :class="{cur: cur === index}" :src="require(`../../../assets/images/banner${item}.png`)" />
   </div>
 </template>
 <script>
@@ -34,6 +34,8 @@ export default {
   overflow: hidden;
   img {
     position: absolute;
+    left: 0;
+    top: 0;
     height: 100%;
     opacity: 0;
     transition: opacity 2s ease-in-out;
@@ -43,4 +45,3 @@ export default {
   }
 }
 </style>
-

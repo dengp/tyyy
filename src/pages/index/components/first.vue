@@ -6,13 +6,25 @@
       <h3>三个核心版块</h3>
       <p>StageKids提供多个延伸支持版块，鼓励父母参与到孩子的亲子陪伴类活动中</p>
     </div>
-    <div class="cardList">
+    <div class="cardList pc">
       <div class="card" v-for="(item, index) in cardList" :key="index">
         <img :src="item.pic" />
         <span class="cardTitle">{{item.title}}</span>
         <span class="desc">{{item.desc}}</span>
         <p class="details" :class="`details${index}`">{{item.details}}</p>
       </div>
+    </div>
+    <div class="cardList">
+      <swiper ref="mySwiper">
+        <swiper-slide v-for="(item, index) in cardList" :key="index">
+          <div class="card">
+            <img :src="item.pic" />
+            <span class="cardTitle">{{item.title}}</span>
+            <span class="desc">{{item.desc}}</span>
+            <p class="details" :class="`details${index}`">{{item.details}}</p>
+          </div>
+        </swiper-slide>
+      </swiper>
     </div>
     <div class="introArea">
       <div class="border-big-w"></div>
@@ -46,10 +58,16 @@
   </div>
 </template>
 <script>
+import 'swiper/dist/css/swiper.css'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
   props: [
     'curTop'
   ],
+  components: {
+    swiper,
+    swiperSlide
+  },
   data() {
     return {
       cardList: [
@@ -129,11 +147,14 @@ export default {
     to {transform: rotate(360deg);}
   }
   .cardList {
-    display: flex;
+    display: none;
     justify-content: center;
     margin-top: 40px;
     position: relative;
     z-index: 1;
+    &.pc {
+      display: flex;
+    }
     .card {
       width: 320px;
       height: 360px;
@@ -323,6 +344,182 @@ export default {
       }
       50% {
         transform:translateY(-20px) rotate(8deg);
+      }
+    }
+  }
+}
+@media screen and (max-width: 750px) {
+  .main {
+    .first {
+      width: 100%;
+      padding-top: 0.6rem;
+      .content_title {
+        h3 {
+          font-size:0.48rem;
+        }
+        p {
+          font-size:0.28rem;
+          margin-top: 0.39rem;
+          padding: 0 1.24rem;
+          line-height:0.38rem;
+        }
+      }
+      .fc-big {
+        width: 1.58rem;
+        height: 1.6rem;
+      }
+      .fc-min {
+        width: 0.36rem;
+        height: 0.36rem;
+        top: 1.22rem;
+        right: 1.01rem;
+      }
+      .cardList {
+        display: flex;
+        height: 5.41rem;
+        &.pc {
+          display: none;
+        }
+        .card {
+          width: 4.8rem;
+          height: 5.41rem;
+          box-shadow:0 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+          border-radius: 0.08rem;
+          margin: 0 0.15rem;
+          img {
+            width: 4.8rem;
+            height: 4.06rem;
+          }
+          span {
+            width: 4.8rem;
+            &.cardTitle {
+              font-size:0.3rem;
+              margin-top: 0.37rem;
+            }
+            &.desc {
+              font-size:0.24rem;
+              margin-top: 0.12rem;
+            }
+          }
+          .details {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size:18px;
+            color:rgba(255,255,255,1);
+            line-height:30px;
+            display: none;
+            padding: 28px 30px 0;
+            &.details0 {
+              background: #F6B221;
+            }
+            &.details1 {
+              background: #1CBCF9;
+            }
+            &.details2 {
+              background: #A8C100;
+            }
+          }
+          &:hover, &:active {
+            .details {
+              display: block;
+            }
+          }
+        }
+      }
+      .introArea {
+        margin-top: 0.59rem;
+        .border-big {
+          width: 1.2rem;
+          height : 1.2rem;
+          top: -0.6rem;
+          .wrapper{
+            width: 0.6rem;
+            height: 1.2rem;
+          }
+          .right{
+            right:0;
+          }
+          .left{
+            left:0;
+          }
+          .circle{
+            width: 1.2rem;
+            height: 1.2rem;
+            border:0.15rem solid transparent;
+            border-radius: 50%;
+          }
+          .rightcircle{
+            border-top:0.15rem solid #ED5C34;
+            border-left:0.15rem solid #ED5C34;
+          }
+          .leftcircle{
+            border-bottom:0.15rem solid #ED5C34;
+            border-left:0.15rem solid #ED5C34;
+          }
+        }
+        .border-big-w {
+          width:1.2rem;
+          height:1.2rem;
+          border:0.15rem solid #ffffff;
+          top: -0.6rem;
+        }
+        .img01 {
+          width:6.4rem;
+          height:4.8rem;
+          bottom: 0;
+          top: 0.4rem;
+        }
+        .introBox {
+          width:7.1rem;
+          height:11rem;
+          background:rgba(237,92,52,1);
+          position: relative;
+          display: flex;
+          justify-content: flex-end;
+          overflow: hidden;
+          .border-min {
+            width:1.2rem;
+            height:1.2rem;
+            border:0.15rem solid rgba(255,255,255,1);
+          }
+          .intro {
+            width: 548px;
+            color: #ffffff;
+            margin: 133px 45px 0 0;
+            h4 {
+              font-size:36px;
+            }
+            ul {
+              margin-top: 40px;
+              li {
+                font-size: 18px;
+                line-height: 36px;
+              }
+            }
+          }
+        }
+        .qiqiu {
+          width: 177px;
+          height: 321px;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          background: url("~assets/images/qiqiu.png");
+          background-size: 100%;
+          animation:balloon 6s ease-in-out infinite;
+          transform-origin:bottom center;
+        }
+        @keyframes balloon {
+          0%,100% {
+            transform:translateY(0) rotate(-6deg);
+          }
+          50% {
+            transform:translateY(-20px) rotate(8deg);
+          }
+        }
       }
     }
   }

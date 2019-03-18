@@ -2,7 +2,7 @@
   <div>
     <loading v-if="loading" />
     <div class="main" v-else>
-      <Header :current="0" bg='no' :hasBg="showHeaderBg" />
+      <Header class="header" :current="0" bg='no' :hasBg="showHeaderBg" />
       <Parallax :fixed="true">
         <Banner />
         <div class="area_top">
@@ -47,12 +47,12 @@ export default {
       loading: true
     }
   },
-  created() {
+  mounted() {
     this.imgLoad();
     window.onscroll = () => {
       const curTop = document.documentElement.scrollTop || document.body.scrollTop;
       const curHeight = document.documentElement.clientHeight || document.body.clientHeight;
-      const pos = curHeight - 90;
+      const pos = curHeight - document.querySelector('.header').offsetHeight;
       this.curTop = curTop;
       if(curTop >= pos){
         this.showFixed = true;
@@ -111,6 +111,11 @@ body {
     left: 0px;
     top: 0px;
     z-index: 1;
+  }
+}
+@media screen and (max-width: 750px) {
+  .main {
+    min-width: 100%;
   }
 }
 </style>
