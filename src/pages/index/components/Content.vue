@@ -1,11 +1,11 @@
 <template>
 <div class="contentBox">
   <div class="content">
-    <first :curTop="curTop" />
+    <first :curTop="curTop" :curHeight="curHeight" />
     <second />
-    <third :curTop="curTop" />
+    <third :curTop="curTop" :curHeight="curHeight" />
     <fourth />
-    <fifth :curTop="curTop" />
+    <fifth :curTop="curTop" :curHeight="curHeight" />
   </div>
 </div>
 </template>
@@ -17,7 +17,8 @@ import fourth from './fourth';
 import fifth from './fifth';
 export default {
   props: [
-    'curTop'
+    'curTop',
+    'curHeight'
   ],
   components: {
     first,

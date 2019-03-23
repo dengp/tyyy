@@ -1,21 +1,22 @@
 <template>
   <div class="third">
     <div class="yf">
-      <div class="yf01 animated" :class="{slideInLeft:  circleRoate}"></div>
-      <div class="yf02-s animated" :class="{slideInLeft:  circleRoate}"></div>
+      <div class="yf01 animated" :class="{slideInLeft: circleRoate}"></div>
+      <div class="yf02-s animated" :class="{slideInLeft: circleRoate}"></div>
+      <h3>不一样的主播</h3>
     </div>
     <div class="border-big-w"></div>
     <div class="border-big">
       <div class="wrapper right">
-        <div class="circle" :class="{rightcircle:  circleRoate}"></div>
+        <div class="circle" :class="{rightcircle: circleRoate}"></div>
       </div>
       <div class="wrapper left">
-        <div class="circle" :class="{leftcircle:  circleRoate}"></div>
+        <div class="circle" :class="{leftcircle: circleRoate}"></div>
       </div>
     </div>
-    <div class="conBox">
+    <div class="conBox pc">
       <div class="border-min"></div>
-      <div class="yf-x animated" :class="{slideInLeft:  circleRoate}"></div>
+      <div class="yf-x animated" :class="{slideInLeft: circleRoate}"></div>
       <div class="con">
         <h3>不一样的主播</h3>
         <span class="desc">欧美成人与双语儿童主播，无需拥有英语基础，从零开始的孩子无障碍开启</span>
@@ -35,6 +36,26 @@
         </div>
       </div>
     </div>
+    <div class="conBox">
+      <div class="descBox">
+        <div class="yf-x animated" :class="{slideInLeft: circleRoate}"></div>
+        <div class="border-min"></div>
+        <span class="desc">欧美成人与双语儿童主播，无需拥有英语基础，从零开始的孩子无障碍开启</span>
+      </div>
+      <div class="con">
+        <div class="anchor">
+          <div class="anchorList" :class="`pos${cur}`"  @mouseenter="enter" @mouseleave="leave">
+            <div class="anchorItem" v-for="(item, index) in anchorList" :key="index">
+              <img :src="item.pic" />
+              <span class="name">{{item.name}}</span>
+              <span class="info">{{item.info}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="left" @click="prev"></div>
+        <div class="right" @click="next"></div>
+      </div>
+    </div>
     <div class="videoBox">
       <div class="videoCover" v-if="!playVideo">
         <img src="../../../assets/images/img02.png" />
@@ -49,7 +70,8 @@
 <script>
 export default {
   props: [
-    'curTop'
+    'curTop',
+    'curHeight'
   ],
   data() {
     return {
@@ -73,16 +95,25 @@ export default {
       cur: 0,
       timer: null,
       pos: 0,
-      playVideo: false
+      playVideo: false,
+      animate: true
     };
   },
   computed: {
     circleRoate() {
-      return this.curTop > this.pos;
+      const toAnimate = this.curTop >= this.pos && this.curTop < this.pos + this.curHeight;
+      if (this.animate && toAnimate) {
+        setTimeout(() => {
+          this.animate = false;
+        }, 2000);
+        return toAnimate;
+      } else {
+        return !this.animate;
+      }
     }
   },
   mounted() {
-    this.startAni();
+    // this.startAni();
     this.pos = document.querySelector('.third').offsetTop + 300;
   },
   methods: {
@@ -98,12 +129,26 @@ export default {
       clearInterval(this.timer);
     },
     enter(index) {
-      this.stopAni();
+      // this.stopAni();
       (index >= 0) && (this.cur = index);
     },
     leave(index) {
-      this.startAni();
+      // this.startAni();
       (index >= 0) && (this.cur = index);
+    },
+    prev() {
+      if (this.cur > 0) {
+        this.cur--;
+      } else {
+        this.cur = this.anchorList.length - 1;
+      }
+    },
+    next() {
+      if (this.cur < this.anchorList.length - 1) {
+        this.cur++;
+      } else {
+        this.cur = 0;
+      }
     },
     play() {
       this.playVideo = true;
@@ -117,7 +162,6 @@ export default {
 
 <style lang="less" scoped>
 .third {
-  width: 1440px;
   position: relative;
   padding-bottom: 70px;
   .border-big {
@@ -192,32 +236,38 @@ export default {
     display: flex;
     align-items: flex-end;
     margin-top: 27px;
+    h3 {
+      display: none;
+    }
     .yf01 {
       width: 200px;
       height: 200px;
       background: url("~assets/images/yf01.png");
-      background-size: 100%;
+      background-size: 100% 100%;
     }
     .yf02-s {
       width: 60px;
       height: 54px;
       background: url("~assets/images/yf02-s.png");
-      background-size: 100%;
+      background-size: 100% 100%;
       margin-left: 1px;
     }
   }
   .conBox {
+    display: none;
     width:1300px;
     height:640px;
     background:rgba(168,193,0,1);
     position: relative;
     overflow: hidden;
     z-index: 1;
+    &.pc {
+      display: block;
+    }
     .border-min {
       width:280px;
       height:280px;
-      border-bottom: 30px solid rgba(255,255,255,1);
-      border-left: 30px solid rgba(255,255,255,1);
+      border: 30px solid rgba(255,255,255,1);
       border-radius: 50%;
       position: absolute;
       top: -140px;
@@ -227,7 +277,7 @@ export default {
       width: 60px;
       height: 54px;
       background: url("~assets/images/yf-x.png");
-      background-size: 100%;
+      background-size: 100% 100%;
       margin-left: 201px;
     }
   }
@@ -334,7 +384,7 @@ export default {
         width: 80px;
         height: 80px;
         background: url("~assets/images/palyvido.png");
-        background-size: 100%;
+        background-size: 100% 100%;
         left: 50%;
         top: 50%;
         margin: -40px 0 0 -40px;
@@ -344,6 +394,191 @@ export default {
       width: 800px;
       position: relative;
       z-index: 3;
+    }
+  }
+}
+@media screen and (max-width: 750px) {
+  .third {
+    padding-bottom: 0;
+    .border-big {
+      width: 1.2rem;
+      height : 1.2rem;
+      top: 1rem;
+      .wrapper{
+        width: 0.6rem;
+        height: 1.2rem;
+      }
+      .circle{
+        width: 1.2rem;
+        height: 1.2rem;
+        border:0.15rem solid transparent;
+      }
+      .rightcircle{
+        border-top:0.15rem solid #A8C100;
+        border-left:0.15rem solid #A8C100;
+      }
+      .leftcircle{
+        border-bottom:0.15rem solid #A8C100;
+        border-left:0.15rem solid #A8C100;
+      }
+    }
+    .border-big-w {
+      width:1.2rem;
+      height:1.2rem;
+      border:0.15rem solid #ffffff;
+      top: 1rem;
+    }
+    .yf {
+      margin-top: 0.6rem;
+      .yf01 {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+      .yf02-s {
+        width: 0.4rem;
+        height: 0.35rem;
+        margin-left: -0.16rem;
+      }
+      h3 {
+        width: 100%;
+        display: block;
+        font-size:0.48rem;
+        font-weight:bold;
+        position: absolute;
+        left: 0;
+        top: 0.72rem;
+        text-align: center;
+      }
+    }
+    .descBox {
+      width: 7.1rem;
+      padding-bottom: 0.2rem;
+      background:rgba(168,193,0,1);
+      position: relative;
+      overflow: hidden;
+      .desc {
+        display: block;
+        width:5.86rem;
+        height:0.66rem;
+        font-size:0.28rem;
+        font-weight:400;
+        color:rgba(255,255,255,1);
+        line-height:0.38rem;
+        text-align: center;
+        margin: 0.24rem auto 0;
+      }
+      .border-min {
+        width:1.2rem;
+        height:1.2rem;
+        border: 0.15rem solid rgba(255,255,255,1);
+        position: absolute;
+        top: -0.6rem;
+        right: -0.4rem;
+      }
+      .yf-x {
+        width: 0.4rem;
+        height: 0.35rem;
+        margin-left: 1.44rem;
+      }
+    }
+    .conBox {
+      width:100%;
+      height:auto;
+      display: block;
+      background: none;
+      overflow: inherit;
+      &.pc {
+        display: none;
+      }
+    }
+    .con {
+      background:rgba(168,193,0,1);
+      width: 100%;
+      margin: -1px 0 0 0;
+      .anchor {
+        width: 5.9rem;
+        margin: 0 auto;
+        .anchorList {
+          margin-top: 0.6rem;
+          width: 17.7rem;
+          &.pos0 {
+            transform: translateX(0)
+          }
+          &.pos1 {
+            transform: translateX(-5.9rem);
+          }
+          &.pos2 {
+            transform: translateX(-11.8rem);
+          }
+          .anchorItem {
+            display: flex;
+            flex-direction: column;
+            width: 5.9rem;
+            img {
+              width: 2rem;
+              height: 2rem;
+              margin: 0 auto;
+            }
+            span {
+              &.name {
+                font-size:0.3rem;
+                line-height:0.6rem;
+                margin-top: 0.3rem;
+                text-align: center;
+              }
+              &.info {
+                font-size:0.24rem;
+                line-height:0.36rem;
+                margin-top: 0.35rem;
+              }
+            }
+          }
+        }
+      }
+      .left {
+        width: 0.34rem;
+        height: 0.6rem;
+        background: url("~assets/images/arrows_l.png");
+        background-size: 100% 100%;
+        position: absolute;
+        top: 50%;
+        left: 0.17rem;
+        margin-top: -0.3rem;
+      }
+      .right {
+        width: 0.34rem;
+        height: 0.6rem;
+        background: url("~assets/images/arrows_r.png");
+        background-size: 100% 100%;
+        position: absolute;
+        top: 50%;
+        right: 0.17rem;
+        margin-top: -0.3rem;
+      }
+    }
+    .videoBox {
+      width: 100%;
+      height: 4.8rem;
+      position: inherit;
+      background-color: #A8C100;
+      margin-top: -1px;
+      overflow: inherit;
+      .videoCover {
+        position: relative;
+        margin: 0.65rem auto 0;
+        img {
+          width: 6.4rem;
+          height: 4.8rem;
+        }
+        .play {
+          width: 0.8rem;
+          height: 0.8rem;
+          margin: -0.4rem 0 0 -0.4rem;
+        }
+      }
+      .video {
+        width: 6.4rem;
+      }
     }
   }
 }

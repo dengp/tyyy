@@ -10,9 +10,9 @@
         </div>
       </Parallax>
       <TopEwm v-if="showTopEwm" />
-      <Content :curTop="curTop" />
+      <Content :curTop="curTop" :curHeight="curHeight" />
       <Footer />
-      <Fixed v-if="showFixed" />
+      <Fixed class="fixedbox" v-if="showFixed" />
     </div>
   </div>
 </template>
@@ -44,6 +44,7 @@ export default {
       showFixed: false,
       showHeaderBg: false,
       curTop: 0,
+      curHeight: 0,
       loading: true
     }
   },
@@ -54,6 +55,7 @@ export default {
       const curHeight = document.documentElement.clientHeight || document.body.clientHeight;
       const pos = curHeight - document.querySelector('.header').offsetHeight;
       this.curTop = curTop;
+      this.curHeight = curHeight;
       if(curTop >= pos){
         this.showFixed = true;
       } else {
@@ -112,10 +114,16 @@ body {
     top: 0px;
     z-index: 1;
   }
+  .fixedbox {
+    display: block;
+  }
 }
 @media screen and (max-width: 750px) {
   .main {
     min-width: 100%;
+    .fixedbox {
+      display: none;
+    }
   }
 }
 </style>

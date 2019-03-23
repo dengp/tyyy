@@ -84,14 +84,22 @@ export default {
     },
     initDeparmentList() {
       const list = [];
-      this.departmentList.forEach(element => {
+      this.departmentList.forEach((element, i) => {
         const arr = [];
-        element.list.forEach(thisItem => {
-          const obj = Object.assign({flag: false}, thisItem);
+        element.list.forEach((thisItem, index) => {
+          let flag = false;
+          if (index === 0) {
+            flag = true;
+          }
+          const obj = Object.assign({flag}, thisItem);
           arr.push(obj);
         });
         element.list = arr;
-        const item = Object.assign({flag: false}, element);
+        let flag = false;
+        if (i === 0) {
+          flag = true;
+        }
+        const item = Object.assign({flag}, element);
         list.push(item);
       });
       this.departmentList = list;

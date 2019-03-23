@@ -6,8 +6,8 @@
         <h1>联系我们</h1>
         <img src="../../assets/images/titlePicContactBig.png" />
       </div>
-      <div class="conWrap">
-        <h3>童演童语（北京）教育科技有限公司</h3>
+      <div class="conWrap" v-html="content">
+        <!-- <h3>童演童语（北京）教育科技有限公司</h3>
         <p>
           <span>地址：北京市朝阳区望京西路锐创国际中心B座</span>
           <span>邮编：10010</span>
@@ -31,7 +31,7 @@
         <p>
           <span>电话：010-XXX-XXX</span>
           <span>邮箱：product@stagekids.com.cn</span>
-        </p>
+        </p> -->
       </div>
     </div>
     <Footer />
@@ -40,10 +40,26 @@
 <script>
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import { request } from '../../api/request';
 export default {
   components: {
     Header,
     Footer
+  },
+  data() {
+    return {
+      content: ''
+    };
+  },
+  mounted() {
+    request({
+      url: 'https://lsfh.vtanet.com.cn/StageKids/client/content.php?act=getwebcontent',
+      data: {
+      'contentid': 7
+      }
+    }).then((response) => {
+      this.content = response.data.rows[0].content;
+    });
   }
 };
 </script>

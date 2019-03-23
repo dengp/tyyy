@@ -21,7 +21,7 @@
           <div class="icona"></div>
           <span>APP下载</span>
         </div>
-        <div class="gzgzh">
+        <div class="gzgzh" @click="showTopEwm">
           <div class="icona"></div>
           <span>关注公众号</span>
         </div>

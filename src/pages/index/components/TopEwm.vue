@@ -2,13 +2,17 @@
   <div class="topEwm" @click="hideEwm">
     <div class="ewm">
       <img src="../../../assets/images/ewm1.png" />
-      <span>微信订阅号</span>
-      <span class="big">童言英语对话</span>
+      <span class="pc">微信订阅号</span>
+      <span class="big pc">童言英语对话</span>
+      <span>长按保存图片，扫码识别二维码</span>
+      <span>微信订阅号：童言英语对话</span>
     </div>
     <div class="ewm">
       <img src="../../../assets/images/ewm3.png" />
-      <span>微信服务号</span>
-      <span class="big">童言有艺</span>
+      <span class="pc">微信服务号</span>
+      <span class="big pc">童言有艺</span>
+      <span>长按保存图片，扫码识别二维码</span>
+      <span>微信服务号：童言有艺</span>
     </div>
   </div>
 </template>
@@ -43,7 +47,7 @@ export default {
     img {
       width: 258px;
       height: 258px;
-      padding: 0 5px;
+      padding: 5px;
       background: #ffffff;
       border-radius: 8px;
       margin-bottom: 20px;
@@ -53,8 +57,35 @@ export default {
       font-weight:bold;
       color:rgba(255,255,255,1);
       line-height:36px;
+      display: none;
+      &.pc {
+        display: block;
+      }
       &.big {
         font-size: 24px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 750px) {
+  .topEwm {
+    flex-direction: column;
+    .ewm {
+      margin: 0.22rem 0;
+      img {
+        width: 4.3rem;
+        height: 4.3rem;
+        padding: 0 0.1rem;
+        border-radius: 0.16rem;
+        margin-bottom: 0.1rem;
+      }
+      span {
+        font-size:0.22rem;
+        line-height:0.3rem;
+        display: block;
+        &.pc {
+          display: none;
+        }
       }
     }
   }
