@@ -1,6 +1,8 @@
 <template>
-  <div class="banner">
-    <img v-for="(item, index) in picList" :key="index" :class="{cur: cur === index}" :src="require(`../../../assets/images/banner${item}.png`)" />
+  <div class="bannerBox">
+    <div class="banner" v-for="(item, index) in picList" :key="index" :class="{cur: cur === index}">
+      <img :src="require(`../../../assets/images/banner${item}.png`)" />
+    </div>
   </div>
 </template>
 <script>
@@ -22,25 +24,29 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.banner {
+.bannerBox {
   position: relative;
   left: 0px;
   top: 0px;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  img {
+  .banner {
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 0px;
+    top: 0px;
+    width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     opacity: 0;
     transition: opacity 2s ease-in-out;
     &.cur {
       opacity: 1;
+    }
+    img {
+      height: 100%;
     }
   }
 }
