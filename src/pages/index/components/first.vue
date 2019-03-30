@@ -1,13 +1,13 @@
 <template>
   <div class="first">
-    <div class="fc-big"></div>
-    <div class="fc-min"></div>
-    <div class="content_title">
+    <div class="fc-big" :class="{animated: firstAnimate}"></div>
+    <div class="fc-min" :class="{animated: firstAnimate}"></div>
+    <div class="content_title" :class="{'animated fadeIn': firstAnimate}">
       <h3>三个核心版块</h3>
       <p>StageKids提供多个延伸支持版块，鼓励父母参与到孩子的亲子陪伴类活动中</p>
     </div>
     <div class="cardList pc">
-      <div class="card" v-for="(item, index) in cardList" :key="index">
+      <div class="card" :class="firstAnimate ? `animated fadeInUp card${index+1}` : `card${index+1}`" v-for="(item, index) in cardList" :key="index">
         <img :src="item.pic" />
         <span class="cardTitle">{{item.title}}</span>
         <span class="desc">{{item.desc}}</span>
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="introArea">
-      <h3>我们的与众不同</h3>
+      <h3 :class="{'animated fadeIn': circleRoate}">我们的与众不同</h3>
       <div class="introAreaCon">
         <div class="border-big-w"></div>
         <div class="border-big">
@@ -43,12 +43,12 @@
             <div class="circle" :class="{leftcircle: circleRoate}"></div>
           </div>
         </div>
-        <img class="img01" src="../../../assets/images/img01.png" />
+        <img class="img01 animated" :class="{'img01animate slideInLeft': circleRoate}" src="../../../assets/images/img01.png" />
         <div class="introBox">
           <div class="border-min"></div>
           <div class="intro">
-            <h4>我们的与众不同</h4>
-            <ul>
+            <h4 :class="{'animated fadeIn': circleRoate}">我们的与众不同</h4>
+            <ul :class="{'animated fadeIn': circleRoate}">
               <li>o 第一个原创英文音频对话节目</li>
               <li>o 纯正欧美成人与双语儿童主播</li>
               <li>o 海量对话和儿童剧音频节目，原创音频剧【JOJO奇遇记】重磅推出</li>
@@ -60,8 +60,8 @@
             </ul>
           </div>
         </div>
-        <div class="qiqiu"></div>
       </div>
+      <div class="qiqiu" :class="{'animated fadeInUp delay-3s': circleRoate}"></div>
     </div>
   </div>
 </template>
@@ -99,6 +99,7 @@ export default {
           details: '原创音频剧“Jojo奇遇记”重磅推出，宝儿们可以听到主角Jojo犯错误或失败的故事，真实、生动、轻松，让我们的孩子学会乐观地看待自己的失误甚至失败。通过听音频剧，与Jojo共同成长，帮助孩子提升适应各种环境与团队的能力；课后互动游戏，提高孩子独立思考与分析的能力。'
         }
       ],
+      firstPos: 0,
       introAreaPos: 0,
       cur: 1,
       swiperOption: {
@@ -107,16 +108,24 @@ export default {
         initialSlide: 1,//默认第二个
         centeredSlides: true//居中
       },
+      animatefirst: true,
       animate: true
     }
   },
   computed: {
+    firstAnimate() {
+      const toAnimate = this.curTop >= this.firstPos;
+      if (this.animatefirst && toAnimate) {
+        this.animatefirst = false;
+        return toAnimate;
+      } else {
+        return !this.animatefirst;
+      }
+    },
     circleRoate() {
       const toAnimate = this.curTop >= this.introAreaPos && this.curTop < this.introAreaPos + this.curHeight;
       if (this.animate && toAnimate) {
-        setTimeout(() => {
-          this.animate = false;
-        }, 2000);
+        this.animate = false;
         return toAnimate;
       } else {
         return !this.animate;
@@ -125,6 +134,7 @@ export default {
   },
   mounted() {
     this.introAreaPos = document.querySelector('.introArea').offsetTop;
+    this.firstPos = document.querySelector('.first').offsetTop;
   },
   methods: {
     slideChangeTransitionEnd() {
@@ -136,12 +146,11 @@ export default {
 
 <style lang="less" scoped>
 .first {
-  width: 1440px;
   padding-top: 100px;
   position: relative;
-  overflow: hidden;
   .content_title {
     text-align: center;
+    opacity: 0;
     h3 {
       font-size:36px;
       color: #333333;
@@ -160,7 +169,11 @@ export default {
     position: absolute;
     right: 0px;
     top: 0;
-    animation: rotation 3s linear infinite;
+    opacity: 0;
+    &.animated {
+      animation: rotation 1s linear forwards;
+      animation-delay: 1.5s;
+    }
   }
   .fc-min {
     width: 53px;
@@ -170,11 +183,22 @@ export default {
     position: absolute;
     top: 185px;
     right: 150px;
-    animation: rotation 1s linear infinite;
+    opacity: 0;
+    &.animated {
+      animation: rotation 1s linear forwards;
+      animation-direction: 1s;
+      animation-delay: 2s;
+    }
   }
   @keyframes rotation {
-    from {transform: rotate(0deg);}
-    to {transform: rotate(360deg);}
+    from {
+      transform: rotate(0deg) scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: rotate(-90deg) scale(1);
+      opacity: 1;
+    }
   }
   .cardList {
     display: none;
@@ -184,6 +208,8 @@ export default {
     z-index: 1;
     &.pc {
       display: flex;
+      padding-bottom: 100px;
+      overflow: hidden;
     }
     .card {
       width: 320px;
@@ -194,6 +220,14 @@ export default {
       overflow: hidden;
       margin: 0 10px;
       position: relative;
+      opacity: 0;
+      animation-duration: 1s;
+      &.card2 {
+        animation-delay: 0.5s
+      }
+      &.card3 {
+        animation-delay: 1s
+      }
       img {
         width: 320px;
         height: 250px;
@@ -245,7 +279,6 @@ export default {
     display: none;
   }
   .introArea {
-    margin-top: 100px;
     z-index: 0;
     h3 {
       display: none;
@@ -255,11 +288,14 @@ export default {
       justify-content: flex-end;
       position: relative;
       padding-bottom: 219px;
+      overflow: hidden;
+      padding-top: 140px;
+      margin-top: -140px;
       .border-big {
         width: 280px;
         height : 280px;
         position: absolute;
-        top: -139px;
+        top: 0;
         left: 0px;
         .wrapper{
           width: 140px;
@@ -289,13 +325,15 @@ export default {
           right:0px;
           transform: rotate(-45deg);
           animation: circle_right 1s linear forwards;
-          animation-delay: 1s;
+          animation-delay: 5s;
         }
         .leftcircle{
           border-bottom:30px solid #ED5C34;
           border-left:30px solid #ED5C34;
           left:0;
           animation: circle_left 1s linear forwards;
+          animation-delay: 4s;
+          transform: rotate(-135deg);
         }
         @keyframes circle_right{
           0%{
@@ -320,16 +358,19 @@ export default {
         border:30px solid #ffffff;
         border-radius:50%;
         position: absolute;
-        top: -139px;
+        top: 0;
         left: 0px;
       }
       .img01 {
         width:800px;
         height:600px;
         position: absolute;
-        left: 0;
+        left: -800px;
         bottom: 149px;
         z-index: 1;
+        &.img01animate{
+          left: 0;
+        }
       }
       .introBox {
         width:1300px;
@@ -354,9 +395,13 @@ export default {
           margin: 133px 45px 0 0;
           h4 {
             font-size:36px;
+            animation-delay: 1s;
+            opacity: 0;
           }
           ul {
             margin-top: 40px;
+            animation-delay: 2s;
+            opacity: 0;
             li {
               font-size: 18px;
               line-height: 36px;
@@ -364,15 +409,16 @@ export default {
           }
         }
       }
-      .qiqiu {
-        width: 177px;
-        height: 321px;
-        position: absolute;
-        bottom: 0px;
-        right: 0;
-        background: url("~assets/images/qiqiu.png");
-        background-size: 100% 100%;
-      }
+    }
+    .qiqiu {
+      width: 177px;
+      height: 321px;
+      position: absolute;
+      bottom: 0px;
+      right: 0;
+      background: url("~assets/images/qiqiu.png");
+      background-size: 100% 100%;
+      opacity: 0;
     }
   }
 }
@@ -414,6 +460,7 @@ export default {
           box-shadow:0 0 0.2rem 0 rgba(0, 0, 0, 0.05);
           border-radius: 0.08rem;
           margin: 0;
+          opacity: 1;
           img {
             width: 4.8rem;
             height: 4.06rem;
@@ -505,6 +552,8 @@ export default {
           justify-content: flex-end;
           position: relative;
           padding: 0;
+          margin:0;
+          overflow: inherit;
           .border-big {
             width: 1.2rem;
             height : 1.2rem;
@@ -556,6 +605,7 @@ export default {
               }
               ul {
                 margin-top: 0;
+                animation-delay: 1s;
                 li {
                   font-size:0.28rem;
                   line-height:0.42rem;
@@ -563,11 +613,10 @@ export default {
               }
             }
           }
-          .qiqiu {
-            width: 1.4rem;
-            height: 2.57rem;
-            bottom: -1.39rem;
-          }
+        }
+        .qiqiu {
+          width: 1.4rem;
+          height: 2.57rem;
         }
       }
     }

@@ -1,9 +1,9 @@
 <template>
   <div class="Fourth">
     <div class="content_title">
-      <h3>课程体系介绍</h3>
+      <h3 class="animated" :class="{fadeIn: circleRoate}">课程体系介绍</h3>
       <div class="classList">
-        <div class="classItem" :class="`class${index + 1}`" v-for="(item, index) in classList" :key="index">
+        <div class="classItem animated" :class="circleRoate ? `fadeInUp class${index + 1}` : `class${index + 1}`" v-for="(item, index) in classList" :key="index">
           <div class="intro">
             <div :class="`headerbox headerbox${index}`">
               <div class="header">
@@ -51,6 +51,10 @@
 </template>
 <script>
 export default {
+  props: [
+    'curTop',
+    'curHeight'
+  ],
   data() {
     return {
       classList: [
@@ -82,8 +86,24 @@ export default {
           clienttext: ['版块1：童言对话-配套文本概览', '版块2：JOJO奇遇记-部分音频/配套文本/人物介绍', '版块3：一起表演-音视频/图文形式表演说明', '版块4：语法与词汇', '版块5：句型结构', '版块6：评估与测试', '版块7：七天音乐剧训练营', '版块8：微信指导群入群资格'],
           kftext: ['微信客服一对一入群咨询/指导/答疑']
         }
-      ]
+      ],
+      pos: 0,
+      animate: true
     };
+  },
+  computed: {
+    circleRoate() {
+      const toAnimate = this.curTop >= this.pos;
+      if (this.animate && toAnimate) {
+        this.animate = false;
+        return toAnimate;
+      } else {
+        return !this.animate;
+      }
+    }
+  },
+  mounted() {
+    this.pos = document.querySelector('.fourth').offsetTop;
   }
 }
 </script>
@@ -93,11 +113,14 @@ export default {
   margin-top: 100px;
   position: relative;
   z-index: 2;
+  padding-bottom: 100px;
+  overflow: hidden;
   .content_title {
     text-align: center;
     h3 {
       font-size:36px;
       color: #333333;
+      opacity: 0;
     }
   }
   .classList {
@@ -110,6 +133,7 @@ export default {
       background:rgba(255,255,255,1);
       box-shadow:0px 0px 20px 0px rgba(0, 0, 0, 0.1);
       border-radius:8px;
+      opacity: 0;
       overflow: hidden;
       .intro {
         width: 480px;
@@ -216,6 +240,7 @@ export default {
         }
       }
       &.class2 {
+        animation-delay: 0.5s;
         .intro {
           .label {
             background:rgba(237, 92, 52, 1);
@@ -265,6 +290,7 @@ export default {
 @media screen and (max-width: 750px) {
   .fourth {
     margin-top: 1.19rem;
+    padding-bottom: 0;
     .content_title {
       h3 {
         font-size:0.48rem;

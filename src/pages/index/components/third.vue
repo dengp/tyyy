@@ -1,9 +1,11 @@
 <template>
   <div class="third">
     <div class="yf">
-      <div class="yf01 animated" :class="{slideInLeft: circleRoate}"></div>
-      <div class="yf02-s animated" :class="{slideInLeft: circleRoate}"></div>
-      <h3>不一样的主播</h3>
+      <div class="yf01 animated" :class="{'yf01animate slideInLeft': circleRoate}"></div>
+      <div class="yf02-s-box" :class="{animated: circleRoate}">
+        <div class="yf02-s animated delay-2s" :class="{'slideInRight': circleRoate}"></div>
+      </div>
+      <h3 class="animated" :class="{fadeIn: circleRoate}">不一样的主播</h3>
     </div>
     <div class="border-big-w"></div>
     <div class="border-big">
@@ -16,11 +18,13 @@
     </div>
     <div class="conBox pc">
       <div class="border-min"></div>
-      <div class="yf-x animated" :class="{slideInLeft: circleRoate}"></div>
+      <div class="yf-x-box" :class="{animated: circleRoate}">
+        <div class="yf-x animated delay-1s" :class="{slideInLeft: circleRoate}"></div>
+      </div>
       <div class="con">
-        <h3>不一样的主播</h3>
-        <span class="desc">欧美成人与双语儿童主播，无需拥有英语基础，从零开始的孩子无障碍开启</span>
-        <div class="anchor">
+        <h3 class="animated delay-3s" :class="{fadeIn: circleRoate}">不一样的主播</h3>
+        <span class="desc animated delay-4s" :class="{fadeIn: circleRoate}">欧美成人与双语儿童主播，无需拥有英语基础，从零开始的孩子无障碍开启</span>
+        <div class="anchor animated delay-5s" :class="{fadeIn: circleRoate}">
           <div class="anchorList" :class="`pos${cur}`"  @mouseenter="enter" @mouseleave="leave">
             <div class="anchorItem" v-for="(item, index) in anchorList" :key="index">
               <img :src="item.pic" />
@@ -38,12 +42,14 @@
     </div>
     <div class="conBox">
       <div class="descBox">
-        <div class="yf-x animated" :class="{slideInLeft: circleRoate}"></div>
+        <div class="yf-x-box" :class="{animated: circleRoate}">
+          <div class="yf-x animated delay-1s" :class="{slideInLeft: circleRoate}"></div>
+        </div>
         <div class="border-min"></div>
-        <span class="desc">欧美成人与双语儿童主播，无需拥有英语基础，从零开始的孩子无障碍开启</span>
+        <span class="desc animated delay-3s" :class="{fadeIn: circleRoate}">欧美成人与双语儿童主播，无需拥有英语基础，从零开始的孩子无障碍开启</span>
       </div>
       <div class="con">
-        <div class="anchor">
+        <div class="anchor animated delay-4s" :class="{fadeIn: circleRoate}">
           <div class="anchorList" :class="`pos${cur}`"  @mouseenter="enter" @mouseleave="leave">
             <div class="anchorItem" v-for="(item, index) in anchorList" :key="index">
               <img :src="item.pic" />
@@ -52,18 +58,20 @@
             </div>
           </div>
         </div>
-        <div class="left" @click="prev"></div>
-        <div class="right" @click="next"></div>
+        <div class="left animated delay-4s" :class="{fadeIn: circleRoate}" @click="prev"></div>
+        <div class="right animated delay-4s" :class="{fadeIn: circleRoate}" @click="next"></div>
       </div>
     </div>
-    <div class="videoBox">
-      <div class="videoCover" v-if="!playVideo">
-        <img src="../../../assets/images/img02.png" />
-        <div class="play" @click="play"></div>
+    <div class="videoBoxa">
+      <div class="videoBox">
+        <div class="videoCover animated" :class="{'videoBoxanimate slideInRight': circleRoate}" v-if="!playVideo">
+          <img src="../../../assets/images/img02.png" />
+          <div class="play" @click="play"></div>
+        </div>
+        <video v-else class="video" ref="videoa" width="800" controls="controls">
+          <source src="../../../assets/images/cg_v1.mp4" type="video/mp4" />
+        </video>
       </div>
-      <video v-else class="video" ref="videoa" width="800" controls="controls">
-        <source src="../../../assets/images/cg_v1.mp4" type="video/mp4" />
-      </video>
     </div>
   </div>
 </template>
@@ -103,9 +111,7 @@ export default {
     circleRoate() {
       const toAnimate = this.curTop >= this.pos && this.curTop < this.pos + this.curHeight;
       if (this.animate && toAnimate) {
-        setTimeout(() => {
-          this.animate = false;
-        }, 2000);
+        this.animate = false;
         return toAnimate;
       } else {
         return !this.animate;
@@ -114,7 +120,7 @@ export default {
   },
   mounted() {
     // this.startAni();
-    this.pos = document.querySelector('.third').offsetTop + 300;
+    this.pos = document.querySelector('.third').offsetTop;
   },
   methods: {
     startAni() {
@@ -164,6 +170,7 @@ export default {
 .third {
   position: relative;
   padding-bottom: 70px;
+  overflow: hidden;
   .border-big {
     width: 280px;
     height : 280px;
@@ -198,13 +205,15 @@ export default {
       right:0px;
       transform: rotate(-45deg);
       animation: circle_right 1s linear forwards;
-      animation-delay: 1s;
+      animation-delay: 7s;
     }
     .leftcircle{
       border-bottom:30px solid #A8C100;
       border-left:30px solid #A8C100;
       left:0;
       animation: circle_left 1s linear forwards;
+      animation-delay: 6s;
+      transform: rotate(-135deg);
     }
     @keyframes circle_right{
       0%{
@@ -244,13 +253,24 @@ export default {
       height: 200px;
       background: url("~assets/images/yf01.png");
       background-size: 100% 100%;
+      margin-left: -200px;
+      &.yf01animate {
+        margin-left: 0px;
+      }
     }
-    .yf02-s {
-      width: 60px;
-      height: 54px;
-      background: url("~assets/images/yf02-s.png");
-      background-size: 100% 100%;
-      margin-left: 1px;
+    .yf02-s-box {
+      opacity: 0;
+      &.animated {
+        animation: opacityFn 0.1s forwards;
+        animation-delay: 2s;
+      }
+      .yf02-s {
+        width: 60px;
+        height: 54px;
+        background: url("~assets/images/yf02-s.png");
+        background-size: 100% 100%;
+        margin-left: 1px;
+      }
     }
   }
   .conBox {
@@ -270,15 +290,30 @@ export default {
       border: 30px solid rgba(255,255,255,1);
       border-radius: 50%;
       position: absolute;
-      top: -140px;
+      top: -167px;
       right: -140px;
     }
-    .yf-x {
-      width: 60px;
-      height: 54px;
-      background: url("~assets/images/yf-x.png");
-      background-size: 100% 100%;
-      margin-left: 201px;
+    .yf-x-box {
+      opacity: 0;
+      &.animated {
+        animation: opacityFn 0.1s forwards;
+        animation-delay: 1s;
+      }
+      .yf-x {
+        width: 60px;
+        height: 54px;
+        background: url("~assets/images/yf-x.png");
+        background-size: 100% 100%;
+        margin-left: 201px;
+      }
+    }
+  }
+  @keyframes opacityFn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
   .con {
@@ -290,16 +325,19 @@ export default {
       font-family:MicrosoftYaHei-Bold;
       font-weight:bold;
       line-height:18px;
+      opacity: 0;
     }
     .desc {
       display: block;
       font-size:18px;
       line-height:30px;
       margin-top: 49px;
+      opacity: 0;
     }
     .anchor {
       width: 516px;
       overflow: hidden;
+      opacity: 0;
       .anchorList {
         margin-top: 29px;
         width: 1548px;
@@ -360,46 +398,53 @@ export default {
       }
     }
   }
-  .videoBox {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 800px;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    z-index: 2;
-    .videoCover {
+  .videoBoxa {
+    .videoBox {
       position: absolute;
-      top: 0;
-      left: 0;
-      img {
-        width: 800px;
-        height: 600px;
-      }
-      .play {
-        position: absolute;
-        width: 80px;
-        height: 80px;
-        background: url("~assets/images/palyvido.png");
-        background-size: 100% 100%;
-        left: 50%;
-        top: 50%;
-        margin: -40px 0 0 -40px;
-      }
-    }
-    .video {
+      right: 0px;
+      bottom: 0;
       width: 800px;
-      position: relative;
-      z-index: 3;
+      height: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      z-index: 2;
+      .videoCover {
+        position: absolute;
+        top: 0;
+        right: -800px;
+        animation-delay: 6s;
+        &.videoBoxanimate {
+          right: 0;
+        }
+        img {
+          width: 800px;
+          height: 600px;
+        }
+        .play {
+          position: absolute;
+          width: 80px;
+          height: 80px;
+          background: url("~assets/images/palyvido.png");
+          background-size: 100% 100%;
+          left: 50%;
+          top: 50%;
+          margin: -40px 0 0 -40px;
+        }
+      }
+      .video {
+        width: 800px;
+        position: relative;
+        z-index: 3;
+      }
     }
   }
 }
 @media screen and (max-width: 750px) {
   .third {
     padding-bottom: 0;
+    overflow: inherit;
     .border-big {
       width: 1.2rem;
       height : 1.2rem;
@@ -430,14 +475,17 @@ export default {
     }
     .yf {
       margin-top: 0.6rem;
+      position: relative;
       .yf01 {
         width: 1.6rem;
         height: 1.6rem;
       }
-      .yf02-s {
-        width: 0.4rem;
-        height: 0.35rem;
-        margin-left: -0.16rem;
+      .yf02-s-box {
+        .yf02-s {
+          width: 0.4rem;
+          height: 0.35rem;
+          margin-left: -0.16rem;
+        }
       }
       h3 {
         width: 100%;
@@ -448,6 +496,7 @@ export default {
         left: 0;
         top: 0.72rem;
         text-align: center;
+        opacity: 0;
       }
     }
     .descBox {
@@ -466,6 +515,7 @@ export default {
         line-height:0.38rem;
         text-align: center;
         margin: 0.24rem auto 0;
+        opacity: 0;
       }
       .border-min {
         width:1.2rem;
@@ -475,10 +525,12 @@ export default {
         top: -0.6rem;
         right: -0.4rem;
       }
-      .yf-x {
-        width: 0.4rem;
-        height: 0.35rem;
-        margin-left: 1.44rem;
+      .yf-x-box {
+        .yf-x {
+          width: 0.4rem;
+          height: 0.35rem;
+          margin-left: 1.44rem;
+        }
       }
     }
     .conBox {
@@ -544,6 +596,7 @@ export default {
         top: 50%;
         left: 0.17rem;
         margin-top: -0.3rem;
+        opacity: 0;
       }
       .right {
         width: 0.34rem;
@@ -554,30 +607,42 @@ export default {
         top: 50%;
         right: 0.17rem;
         margin-top: -0.3rem;
+        opacity: 0;
       }
     }
-    .videoBox {
-      width: 100%;
-      height: 4.8rem;
-      position: inherit;
+    .videoBoxa {
       background-color: #A8C100;
-      margin-top: -1px;
-      overflow: inherit;
-      .videoCover {
+      margin: -1px 0 0.6rem 0;
+      .videoBox {
+        width: 100%;
+        height: 4.8rem;
         position: relative;
-        margin: 0.65rem auto 0;
-        img {
+        overflow: hidden;
+        top: 0.6rem;
+        left: 0;
+        overflow: hidden;
+        .videoCover {
+          width: 100%;
+          position: absolute;
+          text-align: center;
+          right: -10rem;
+          animation-delay: 5s;
+          img {
+            width: 6.4rem;
+            height: 4.8rem;
+          }
+          &.videoBoxanimate {
+            right: 0;
+          }
+          .play {
+            width: 0.8rem;
+            height: 0.8rem;
+            margin: -0.4rem 0 0 -0.4rem;
+          }
+        }
+        .video {
           width: 6.4rem;
-          height: 4.8rem;
         }
-        .play {
-          width: 0.8rem;
-          height: 0.8rem;
-          margin: -0.4rem 0 0 -0.4rem;
-        }
-      }
-      .video {
-        width: 6.4rem;
       }
     }
   }

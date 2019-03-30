@@ -2,9 +2,9 @@
 <div class="contentBox">
   <div class="content">
     <first :curTop="curTop" :curHeight="curHeight" />
-    <second />
+    <second :curTop="curTop" :curHeight="curHeight" />
     <third :curTop="curTop" :curHeight="curHeight" />
-    <fourth />
+    <fourth :curTop="curTop" :curHeight="curHeight" />
     <fifth :curTop="curTop" :curHeight="curHeight" />
   </div>
 </div>

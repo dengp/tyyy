@@ -2,10 +2,10 @@
   <div class="TopAreaInfo">
     <div class="info">
       <div class="title">
-        <h2 class="eng animated bounce">Stage Your Future</h2>
-        <h2 class="cn animated bounce">展现你的未来</h2>
+        <h2 class="eng animated fadeInUp">Stage Your Future</h2>
+        <h2 class="cn animated fadeInUp">展现你的未来</h2>
       </div>
-      <div class="icon">
+      <div class="icon animated fadeInUp">
         <div class="plam">
           <span class="ios"></span>
           <span class="android"></span>
@@ -15,7 +15,7 @@
       <div class="go" @click="go">
         <span></span>
       </div>
-      <div class="mobile animated bounceInUp"></div>
+      <div class="mobile animated fadeInUp"></div>
       <div class="choose">
         <div class="appDown">
           <div class="icona"></div>
@@ -69,15 +69,17 @@ export default {
         font-family:MicrosoftYaHei;
         font-weight: 400;
         margin: 0 120px 17px 0;
-        animation-duration: 1s;
+        animation-delay: 1.5s;
         &.eng {
           font-size: 60px;
+          animation-delay: 0.8s;
         }
       }
     }
     .icon {
       display: flex;
       margin: 42px 120px 110px 0;
+      animation-delay: 2s;
       .plam {
         display: flex;
         width: 300px;

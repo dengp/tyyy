@@ -1,11 +1,11 @@
 <template>
   <div class="second">
-    <div class="content_title">
+    <div class="content_title" :class="{'animated fadeIn': animated}">
       <h3>课程体系介绍阶梯式课程体系</h3>
       <p>4个级别 · 27个单元 · 每个单元50节课程，从零基础-初级-中级-高级，循序渐进</p>
     </div>
     <div class="lvList">
-      <div class="lvItem" :class="{cur: index===cur}" v-for="(item, index) in lvList" :key="index" @click="lvClick(index)" @mouseenter="lvClick(index)">
+      <div class="lvItem" :class="[index===cur ? `cur lvItem${index+1}` : `lvItem${index+1}`, animated ? 'animated fadeInUp' : '']" v-for="(item, index) in lvList" :key="index" @click="lvClick(index)" @mouseenter="lvClick(index)">
         <div class="reqiqiu"></div>
         <div class="lv">
           <div :class="`lvblock lv${index+1}`">
@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <div :class="`descBox descBox${cur+1}`">
+    <div class="descBox" :class="animated ? `animated fadeIn delay-3s descBox${cur+1}` : `descBox${cur+1}`">
       <div class="icon_j"></div>
       <span class="desc" v-html="lvList[cur].desc"></span>
     </div>
@@ -24,6 +24,10 @@
 </template>
 <script>
 export default {
+  props: [
+    'curTop',
+    'curHeight'
+  ],
   data() {
     return {
       lvList: [
@@ -52,8 +56,24 @@ export default {
           cnt: '6个<br/>Program'
         }
       ],
-      cur: 0
+      cur: 0,
+      secondPos: 0,
+      animate: true
     }
+  },
+  computed: {
+    animated() {
+      const toAnimate = this.curTop >= this.secondPos && this.curTop < this.secondPos + this.curHeight;
+      if (this.animate && toAnimate) {
+        this.animate = false;
+        return toAnimate;
+      } else {
+        return !this.animate;
+      }
+    }
+  },
+  mounted() {
+    this.secondPos = document.querySelector('.second').offsetTop;
   },
   methods: {
     lvClick(index) {
@@ -70,7 +90,9 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
   .content_title {
+    opacity: 0;
     text-align: center;
     h3 {
       font-size:36px;
@@ -90,6 +112,19 @@ export default {
     .lvItem {
       margin: 0 25px;
       position: relative;
+      opacity: 0;
+      &.lvItem1 {
+        animation-delay: 0.5s;
+      }
+      &.lvItem2 {
+        animation-delay: 1s;
+      }
+      &.lvItem3 {
+        animation-delay: 1.5s;
+      }
+      &.lvItem4 {
+        animation-delay: 2s;
+      }
       .reqiqiu {
         width:204px;
         height: 244px;
@@ -173,6 +208,7 @@ export default {
   }
   .descBox {
     margin-top: 10px;
+    opacity: 0;
     .icon_j {
       width: 30px;
       height: 20px;

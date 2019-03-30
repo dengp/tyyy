@@ -1,6 +1,6 @@
 <template>
   <div class="fifth">
-    <h4>关于我们</h4>
+    <h4 class="animated" :class="{fadeIn: circleRoate}">关于我们</h4>
     <div class="fifthCon">
       <div class="border-big-w"></div>
       <div class="border-big">
@@ -11,17 +11,19 @@
           <div class="circle" :class="{leftcircle: circleRoate}"></div>
         </div>
       </div>
-      <img class="img03" src="../../../assets/images/img03.png" />
-      <img class="img04" src="../../../assets/images/ren.png" />
-      <div class="introBox">
-        <div class="border-min"></div>
-        <div class="intro">
-          <h4>关于我们</h4>
-          <div class="text">
-            <span>未来的舞台是一个没有边界的舞台。唯一的限制是想象力，甚至是一个小小的声音，都可以在全球范围内，制造巨大的涟漪。</span>
-            <span>由StageKids培育的孩子们已经准备好面对全球性的未来。通过艺术教育的旅程，他们敢于去梦想、去发现，成为有创意、有自信的沟通者。</span>
+      <img class="img03 animated" :class="{'img3animate slideInLeft': circleRoate}" src="../../../assets/images/img03.png" />
+      <div class="over">
+        <img class="img04 animated delay-4s" :class="{'img04animate slideInRight': circleRoate}" src="../../../assets/images/ren.png" />
+        <div class="introBox">
+          <div class="border-min"></div>
+          <div class="intro">
+            <h4 class="animated delay-1s" :class="{fadeIn: circleRoate}">关于我们</h4>
+            <div class="text animated delay-2s" :class="{fadeIn: circleRoate}">
+              <span>未来的舞台是一个没有边界的舞台。唯一的限制是想象力，甚至是一个小小的声音，都可以在全球范围内，制造巨大的涟漪。</span>
+              <span>由StageKids培育的孩子们已经准备好面对全球性的未来。通过艺术教育的旅程，他们敢于去梦想、去发现，成为有创意、有自信的沟通者。</span>
+            </div>
+            <a href="./about.html" class="btn animated delay-3s" :class="{fadeIn: circleRoate}">了解更多</a>
           </div>
-          <a href="./about.html" class="btn">了解更多</a>
         </div>
       </div>
     </div>
@@ -63,9 +65,7 @@ export default {
     circleRoate() {
       const toAnimate = this.curTop >= this.introBoxPos && this.curTop < this.introBoxPos + this.curHeight;
       if (this.animate && toAnimate) {
-        setTimeout(() => {
-          this.animate = false;
-        }, 2000);
+        this.animate = false;
         return toAnimate;
       } else {
         return !this.animate;
@@ -82,15 +82,21 @@ export default {
 
 <style lang="less" scoped>
 .fifth {
-  margin-top: 100px;
   h4 {
     display: none;
+  }
+  .over {
+    width: 100%;
+    height: 710px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
   }
   .fifthCon {
     position: relative;
     display: flex;
     justify-content: flex-end;
-    padding-bottom: 70px;
     .border-big {
       width: 280px;
       height : 280px;
@@ -126,13 +132,16 @@ export default {
         right:0px;
         transform: rotate(-45deg);
         animation: circle_right 1s linear forwards;
-        animation-delay: 1s;
+        animation-delay: 6s;
       }
       .leftcircle{
         border-bottom:30px solid #1CBCF9;
         border-left:30px solid #1CBCF9;
         left:0;
         animation: circle_left 1s linear forwards;
+        transform: rotate(-135deg);
+        animation-delay: 5s;
+
       }
       @keyframes circle_right{
         0%{
@@ -165,17 +174,23 @@ export default {
       width:800px;
       height:600px;
       position: absolute;
-      left: 0;
+      left: -800px;
       bottom: 0px;
       z-index: 1;
+      &.img3animate {
+        left: 0;
+      }
     }
     .img04 {
       width:235px;
       height:150px;
       position: absolute;
-      right: 0;
-      bottom: 0px;
+      right: -235px;
+      bottom: 0;
       z-index: 1;
+      &.img04animate {
+        right: 0;
+      }
     }
     .introBox {
       width:1300px;
@@ -201,6 +216,7 @@ export default {
         h4 {
           display: block;
           font-size:36px;
+          opacity: 0;
         }
         .text {
           height: 234px;
@@ -208,6 +224,7 @@ export default {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+          opacity: 0;
           span {
             font-size: 18px;
             line-height:36px;
@@ -226,6 +243,7 @@ export default {
           text-align: center;
           cursor: pointer;
           margin-top: 43px;
+          opacity: 0;
         }
       }
     }
@@ -235,6 +253,10 @@ export default {
   .fifth {
     margin-top: 0.6rem;
     flex-direction: column;
+    .over {
+      height: auto;
+      padding-bottom: 0.55rem;
+    }
     h4 {
       font-size:0.48rem;
       font-weight:bold;
@@ -243,9 +265,10 @@ export default {
       display: block;
       margin-bottom: 0.41rem;
       text-align: center;
+      opacity: 0;
     }
     .fifthCon {
-      padding-bottom: 0.55rem;
+      padding-bottom: 0;
       .border-big {
         width: 1.2rem;
         height: 1.2rem;
@@ -262,10 +285,12 @@ export default {
         .rightcircle{
           border-top:0.15rem solid #1CBCF9;
           border-left:0.15rem solid #1CBCF9;
+          animation-delay: 4s;
         }
         .leftcircle{
           border-bottom:0.15rem solid #1CBCF9;
           border-left:0.15rem solid #1CBCF9;
+          animation-delay: 3s;
         }
       }
       .border-big-w {
@@ -282,6 +307,7 @@ export default {
       .img04 {
         width:2.35rem;
         height:1.5rem;
+        animation-delay: 2s;
       }
       .introBox {
         width:7.1rem;
@@ -304,6 +330,7 @@ export default {
           .text {
             height: auto;
             margin-top: 0;
+            animation-delay: 1s;
             span {
               font-size:0.28rem;
               line-height:0.42rem;
