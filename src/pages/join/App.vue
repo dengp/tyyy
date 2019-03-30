@@ -1,5 +1,6 @@
 <template>
   <div class="main">
+    <loading v-if="loading" />
     <Header :current="3" />
     <div class="con">
       <div class="titleBox">
@@ -41,14 +42,17 @@
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { request } from '../../api/request';
+import loading from '../../components/loading';
 export default {
   components: {
     Header,
-    Footer
+    Footer,
+    loading
   },
   data() {
     return {
-      departmentList: []
+      departmentList: [],
+      loading: true
     };
   },
   mounted() {
@@ -57,6 +61,9 @@ export default {
     }).then((response) => {
       this.departmentList = response.data.departmentList;
       this.initDeparmentList();
+      this.loading = false;
+    }).catch(() => {
+      this.loading = false;
     });
   },
   methods: {
