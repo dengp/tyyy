@@ -545,7 +545,8 @@ export default {
           line-height:0.36rem;
           text-align: center;
           margin: 0 0 0.4rem 0;
-          display: block
+          display: block;
+          opacity: 0;
         }
         .introAreaCon {
           display: flex;
