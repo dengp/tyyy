@@ -11,7 +11,7 @@
       </Parallax>
       <TopEwm v-if="showTopEwm" />
       <Content :curTop="curTop" :curHeight="curHeight" />
-      <Footer />
+      <Footer class="footer" />
       <Fixed class="fixedbox" v-if="showFixed" />
       <div class="choose">
         <div class="appDown">
@@ -174,6 +174,9 @@ body {
           background-size: 100%;
         }
       }
+    }
+    .footer {
+      padding-bottom: 1rem;
     }
   }
 }
