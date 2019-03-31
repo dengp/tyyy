@@ -109,7 +109,7 @@ export default {
   },
   computed: {
     circleRoate() {
-      const toAnimate = this.curTop >= this.pos && this.curTop < this.pos + this.curHeight;
+      const toAnimate = this.curTop >= this.pos + this.curHeight * 3 / 4 && this.curTop < this.pos + this.curHeight;
       if (this.animate && toAnimate) {
         this.animate = false;
         return toAnimate;

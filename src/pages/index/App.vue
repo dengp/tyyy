@@ -13,6 +13,16 @@
       <Content :curTop="curTop" :curHeight="curHeight" />
       <Footer />
       <Fixed class="fixedbox" v-if="showFixed" />
+      <div class="choose">
+        <div class="appDown">
+          <div class="icona"></div>
+          <span>APP下载</span>
+        </div>
+        <div class="gzgzh" @click="showTopEwm">
+          <div class="icona"></div>
+          <span>关注公众号</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -71,10 +81,8 @@ export default {
   methods: {
     imgLoad() {
       let mulitImg = [
-        'https://lsfh.vtanet.com.cn/WebStie/static/images/banner1.png',
-        'https://lsfh.vtanet.com.cn/WebStie/static/images/banner2.png',
-        'https://lsfh.vtanet.com.cn/WebStie/static/images/banner3.png',
-        'https://lsfh.vtanet.com.cn/WebStie/static/images/banner4.png'
+        'https://lsfh.vtanet.com.cn/WebStie/static/images/loading.png',
+        'https://lsfh.vtanet.com.cn/WebStie/static/images/banner1.png'
       ];
       let promiseAll = [], img = [], imgTotal = mulitImg.length;
       for(let i = 0 ; i < imgTotal ; i++){
@@ -117,12 +125,55 @@ body {
   .fixedbox {
     display: block;
   }
+  .choose {
+    display: none;
+  }
 }
 @media screen and (max-width: 750px) {
   .main {
     min-width: 100%;
     .fixedbox {
       display: none;
+    }
+    .choose {
+      width: 7.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 1rem;
+      background:linear-gradient(150deg,rgba(255,149,92,1),rgba(255,106,101,1));
+      box-shadow:0px -5px 5px 0px rgba(0, 0, 0, 0.15);
+      position: fixed;
+      bottom: 0;
+      z-index: 1;
+      span {
+        font-size:0.3rem;
+        font-family:PingFangSC-Medium;
+        font-weight:500;
+        color:rgba(255,255,255,1);
+      }
+      .icona {
+        width: 0.48rem;
+        height: 0.48rem;
+        margin-right: 0.22rem;
+      }
+      .appDown {
+        display: flex;
+        align-items: center;
+        .icona {
+          background: url("~assets/images/download_icon.png");
+          background-size: 100%;
+        }
+      }
+      .gzgzh {
+        display: flex;
+        align-items: center;
+        margin-left: 1.71rem;
+        .icona {
+          background: url("~assets/images/erweima_icon.png");
+          background-size: 100%;
+        }
+      }
     }
   }
 }

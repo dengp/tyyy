@@ -1,7 +1,7 @@
 <template>
   <div class="second">
     <div class="content_title" :class="{'animated fadeIn': animated}">
-      <h3>课程体系介绍阶梯式课程体系</h3>
+      <h3>阶梯式课程体系</h3>
       <p>4个级别 · 27个单元 · 每个单元50节课程，从零基础-初级-中级-高级，循序渐进</p>
     </div>
     <div class="lvList">
@@ -63,7 +63,7 @@ export default {
   },
   computed: {
     animated() {
-      const toAnimate = this.curTop >= this.secondPos && this.curTop < this.secondPos + this.curHeight;
+      const toAnimate = this.curTop >= this.secondPos + this.curHeight * 3 / 4 && this.curTop < this.secondPos + this.curHeight;
       if (this.animate && toAnimate) {
         this.animate = false;
         return toAnimate;
@@ -223,7 +223,7 @@ export default {
       border-radius:8px;
       font-size:18px;
       color:rgba(51,51,51,1);
-      line-height:36px;
+      line-height:24px;
       padding: 30px 20px;
     }
     &.descBox2 {
@@ -310,7 +310,7 @@ export default {
         width: 7.1rem;
         border-radius:0.16rem;
         font-size:0.24rem;
-        line-height:0.36rem;
+        line-height:0.42rem;
         padding: 0.3rem 0.17rem;
       }
       &.descBox2 {

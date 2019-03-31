@@ -139,6 +139,18 @@ export default {
     &.menuOpen {
       height: 100%;
       background: none;
+      .head {
+        background: #ffffff;
+        box-shadow: 0 0.05rem 0.2rem 0 rgba(0,0,0,0.05);
+        .menu {
+          background: url("~assets/images/icon_menu.png");
+          background-size: 100%;
+        }
+        .logo {
+          background: url("~assets/images/logo_black.png");
+          background-size: 100%;
+        }
+      }
       .splice {
         width: 100%;
         height: 100%;
@@ -172,16 +184,17 @@ export default {
       left: 0;
       display: flex;
       flex-direction: column;
+      background: #ffffff;
       li {
         height: 0.9rem;
         padding: 0 0.4rem;
         font-size:0.28rem;
         line-height:0.9rem;
-        border-bottom: 1px solid rgba(255,255,255,0.3);
+        border-bottom: 1px solid #e5e5e5;
         a {
           width: 100%;
           display: block;
-          color: #ffffff;
+          color: #333333;
           span {
             color: #FF6A65;
           }
@@ -208,6 +221,14 @@ export default {
           border-bottom: 1px solid #e5e5e5;
           a {
             color: #333333;
+            span {
+              color: #FF6A65;
+            }
+          }
+          &.current {
+            a {
+              color: #FF6A65;
+            }
           }
         }
       }

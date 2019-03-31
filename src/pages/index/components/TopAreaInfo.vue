@@ -16,16 +16,6 @@
         <span></span>
       </div>
       <div class="mobile animated fadeInUp"></div>
-      <div class="choose">
-        <div class="appDown">
-          <div class="icona"></div>
-          <span>APP下载</span>
-        </div>
-        <div class="gzgzh" @click="showTopEwm">
-          <div class="icona"></div>
-          <span>关注公众号</span>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -70,9 +60,10 @@ export default {
         font-weight: 400;
         margin: 0 120px 17px 0;
         animation-delay: 1.5s;
+        text-align: right;
         &.eng {
           font-size: 60px;
-          animation-delay: 0.8s;
+          animation-delay: 1s;
         }
       }
     }
@@ -137,9 +128,7 @@ export default {
       position: absolute;
       left: 222px;
       bottom: 10px;
-    }
-    .choose {
-      display: none;
+      animation-duration: 2s;
     }
   }
 }
@@ -173,45 +162,7 @@ export default {
         position: initial;
         background: url("~assets/images/iPhone.png");
         background-size: 100% 100%;
-      }
-      .choose {
-        width: 7.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 1rem;
-        background:linear-gradient(150deg,rgba(255,149,92,1),rgba(255,106,101,1));
-        box-shadow:0px -5px 5px 0px rgba(0, 0, 0, 0.15);
-        position: absolute;
-        bottom: 0;
-        span {
-          font-size:0.3rem;
-          font-family:PingFangSC-Medium;
-          font-weight:500;
-          color:rgba(255,255,255,1);
-        }
-        .icona {
-          width: 0.48rem;
-          height: 0.48rem;
-          margin-right: 0.22rem;
-        }
-        .appDown {
-          display: flex;
-          align-items: center;
-          .icona {
-            background: url("~assets/images/download_icon.png");
-            background-size: 100%;
-          }
-        }
-        .gzgzh {
-          display: flex;
-          align-items: center;
-          margin-left: 1.71rem;
-          .icona {
-            background: url("~assets/images/erweima_icon.png");
-            background-size: 100%;
-          }
-        }
+        margin-bottom: -1rem;
       }
     }
   }

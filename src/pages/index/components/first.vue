@@ -81,12 +81,6 @@ export default {
     return {
       cardList: [
         {
-          pic: require('../../../assets/images/card3.png'),
-          title: '一起来表演',
-          desc: 'Show time',
-          details: '一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，100字左右'
-        },
-        {
           pic: require('../../../assets/images/card1.png'),
           title: '童言对话',
           desc: 'Conversation',
@@ -97,15 +91,21 @@ export default {
           title: 'JOJO奇遇记',
           desc: 'JOJO Stories',
           details: '原创音频剧“Jojo奇遇记”重磅推出，宝儿们可以听到主角Jojo犯错误或失败的故事，真实、生动、轻松，让我们的孩子学会乐观地看待自己的失误甚至失败。通过听音频剧，与Jojo共同成长，帮助孩子提升适应各种环境与团队的能力；课后互动游戏，提高孩子独立思考与分析的能力。'
+        },
+        {
+          pic: require('../../../assets/images/card3.png'),
+          title: '一起来表演',
+          desc: 'Show time',
+          details: '一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，100字左右'
         }
       ],
       firstPos: 0,
       introAreaPos: 0,
-      cur: 1,
+      cur: 0,
       swiperOption: {
         slidesPerView: 'auto',
         spaceBetween: 16,
-        initialSlide: 1,//默认第二个
+        initialSlide: 0,//默认第二个
         centeredSlides: true//居中
       },
       animatefirst: true,
@@ -114,7 +114,7 @@ export default {
   },
   computed: {
     firstAnimate() {
-      const toAnimate = this.curTop >= this.firstPos;
+      const toAnimate = this.curTop >= this.firstPos + this.curHeight / 2 && this.curTop < this.firstPos + this.curHeight;
       if (this.animatefirst && toAnimate) {
         this.animatefirst = false;
         return toAnimate;
@@ -123,7 +123,7 @@ export default {
       }
     },
     circleRoate() {
-      const toAnimate = this.curTop >= this.introAreaPos && this.curTop < this.introAreaPos + this.curHeight;
+      const toAnimate = this.curTop >= this.introAreaPos + this.curHeight * 3 / 4 && this.curTop < this.introAreaPos + this.curHeight;
       if (this.animate && toAnimate) {
         this.animate = false;
         return toAnimate;

@@ -63,7 +63,7 @@ export default {
   },
   computed: {
     circleRoate() {
-      const toAnimate = this.curTop >= this.introBoxPos && this.curTop < this.introBoxPos + this.curHeight;
+      const toAnimate = this.curTop >= this.introBoxPos + this.curHeight * 3 / 4 && this.curTop < this.introBoxPos + this.curHeight;
       if (this.animate && toAnimate) {
         this.animate = false;
         return toAnimate;
@@ -182,14 +182,14 @@ export default {
       }
     }
     .img04 {
-      width:235px;
+      width:275px;
       height:150px;
       position: absolute;
-      right: -235px;
+      right: -275px;
       bottom: 0;
       z-index: 1;
       &.img04animate {
-        right: 0;
+        right: -40px;
       }
     }
     .introBox {
@@ -305,9 +305,13 @@ export default {
         top: 0.4rem;
       }
       .img04 {
-        width:2.35rem;
+        width:2.75rem;
         height:1.5rem;
         animation-delay: 2s;
+        right: -2.75rem;
+        &.img04animate {
+          right: -0.4rem;
+        }
       }
       .introBox {
         width:7.1rem;
