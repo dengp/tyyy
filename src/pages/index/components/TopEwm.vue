@@ -1,14 +1,14 @@
 <template>
   <div class="topEwm" @click="hideEwm">
     <div class="ewm">
-      <img src="../../../assets/images/ewm1.png" />
+      <img src="../../../assets/images/ewm_dyh.jpg" />
       <span class="pc">微信订阅号</span>
       <span class="big pc">童言英语对话</span>
       <span>长按保存图片，扫码识别二维码</span>
       <span>微信订阅号：童言英语对话</span>
     </div>
     <div class="ewm">
-      <img src="../../../assets/images/ewm3.png" />
+      <img src="../../../assets/images/ewm_fwh.jpg" />
       <span class="pc">微信服务号</span>
       <span class="big pc">童言有艺</span>
       <span>长按保存图片，扫码识别二维码</span>
@@ -73,8 +73,8 @@ export default {
     .ewm {
       margin: 0.22rem 0;
       img {
-        width: 4.3rem;
-        height: 4.3rem;
+        width: 4rem;
+        height: 4rem;
         padding: 0 0.1rem;
         border-radius: 0.16rem;
         margin-bottom: 0.1rem;

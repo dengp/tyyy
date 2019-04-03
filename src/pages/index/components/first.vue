@@ -43,20 +43,20 @@
             <div class="circle" :class="{leftcircle: circleRoate}"></div>
           </div>
         </div>
-        <img class="img01 animated" :class="{'img01animate slideInLeft': circleRoate}" src="../../../assets/images/img01.png" />
+        <img class="img01 animated" :class="{'img01animate slideInLeft': circleRoate}" src="../../../assets/images/img01.jpg" />
         <div class="introBox">
           <div class="border-min"></div>
           <div class="intro">
             <h4 :class="{'animated fadeIn': circleRoate}">我们的与众不同</h4>
             <ul :class="{'animated fadeIn': circleRoate}">
-              <li>o 第一个原创英文音频对话节目</li>
-              <li>o 纯正欧美成人与双语儿童主播</li>
-              <li>o 海量对话和儿童剧音频节目，原创音频剧【JOJO奇遇记】重磅推出</li>
-              <li>o 定制化的配套双语文本</li>
-              <li>o 高质量的互动型亲子活动与游戏</li>
-              <li>o 无需拥有英语基础，从零开始的孩子无障碍开启</li>
-              <li>o 不同的级别适应各年龄段孩子需求</li>
-              <li>o 支持在线和缓存模式，可在任何智能设备上收听，全平台覆盖。收听时间和空间不受限制，随时随地，无需预约</li>
+              <li><span>·</span><span>第一个原创英文音频对话节目</span></li>
+              <li><span>·</span><span>纯正欧美成人与双语儿童主播</span></li>
+              <li><span>·</span><span>海量对话和儿童剧音频，原创音频剧【JOJO奇遇记】重磅推出</span></li>
+              <li><span>·</span><span>定制化的配套双语文本</span></li>
+              <li><span>·</span><span>高质量的互动型亲子活动与游戏</span></li>
+              <li><span>·</span><span>无需拥有英语基础，从零开始的孩子无障碍开启</span></li>
+              <li><span>·</span><span>不同的级别适应各年龄段孩子需求</span></li>
+              <li><span>·</span><span>支持在线和缓存模式，可在任何智能设备上收听，全平台覆盖。收听时间和空间不受限制，随时随地，无需预约</span></li>
             </ul>
           </div>
         </div>
@@ -81,19 +81,19 @@ export default {
     return {
       cardList: [
         {
-          pic: require('../../../assets/images/card1.png'),
+          pic: require('../../../assets/images/card1.jpg'),
           title: '童言对话',
           desc: 'Conversation',
           details: '童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述100字左右'
         },
         {
-          pic: require('../../../assets/images/card2.png'),
+          pic: require('../../../assets/images/card2.jpg'),
           title: 'JOJO奇遇记',
           desc: 'JOJO Stories',
           details: '原创音频剧“Jojo奇遇记”重磅推出，宝儿们可以听到主角Jojo犯错误或失败的故事，真实、生动、轻松，让我们的孩子学会乐观地看待自己的失误甚至失败。通过听音频剧，与Jojo共同成长，帮助孩子提升适应各种环境与团队的能力；课后互动游戏，提高孩子独立思考与分析的能力。'
         },
         {
-          pic: require('../../../assets/images/card3.png'),
+          pic: require('../../../assets/images/card3.jpg'),
           title: '一起来表演',
           desc: 'Show time',
           details: '一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，100字左右'
@@ -114,7 +114,7 @@ export default {
   },
   computed: {
     firstAnimate() {
-      const toAnimate = this.curTop >= this.firstPos + this.curHeight / 2 && this.curTop < this.firstPos + this.curHeight;
+      const toAnimate = this.curTop >= this.firstPos + this.curHeight / 3 && this.curTop < this.firstPos + this.curHeight;
       if (this.animatefirst && toAnimate) {
         this.animatefirst = false;
         return toAnimate;
@@ -123,7 +123,7 @@ export default {
       }
     },
     circleRoate() {
-      const toAnimate = this.curTop >= this.introAreaPos + this.curHeight * 3 / 4 && this.curTop < this.introAreaPos + this.curHeight;
+      const toAnimate = this.curTop >= this.introAreaPos + this.curHeight / 3 && this.curTop < this.introAreaPos + this.curHeight;
       if (this.animate && toAnimate) {
         this.animate = false;
         return toAnimate;
@@ -405,6 +405,7 @@ export default {
             li {
               font-size: 18px;
               line-height: 36px;
+              display: flex;
             }
           }
         }

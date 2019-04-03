@@ -62,7 +62,7 @@ export default {
           title: '免费课程',
           desc: 'Free Curriculum',
           btn: '马上体验',
-          ewm: require('../../../assets/images/ewm1.png'),
+          ewm: require('../../../assets/images/ewm_dyh.jpg'),
           text1: '微信订阅号',
           text2: '童言英语对话',
           text3: '长按保存图片，扫码识别二维码',
@@ -76,7 +76,7 @@ export default {
           title: '付费课程',
           desc: 'VIP Curriculum',
           btn: '加入会员',
-          ewm: require('../../../assets/images/ewm3.png'),
+          ewm: require('../../../assets/images/ewm_fwh.jpg'),
           text1: '微信服务号',
           text2: '童言有艺',
           text3: '长按保存图片，扫码识别二维码微',
@@ -93,7 +93,7 @@ export default {
   },
   computed: {
     circleRoate() {
-      const toAnimate = this.curTop >= this.pos + this.curHeight / 2 && this.curTop < this.pos + this.curHeight;;
+      const toAnimate = this.curTop >= this.pos + this.curHeight / 3 && this.curTop < this.pos + this.curHeight;;
       if (this.animate && toAnimate) {
         this.animate = false;
         return toAnimate;

@@ -11,7 +11,7 @@
           <div class="circle" :class="{leftcircle: circleRoate}"></div>
         </div>
       </div>
-      <img class="img03 animated" :class="{'img3animate slideInLeft': circleRoate}" src="../../../assets/images/img03.png" />
+      <img class="img03 animated" :class="{'img3animate slideInLeft': circleRoate}" src="../../../assets/images/img03.jpg" />
       <div class="over">
         <img class="img04 animated delay-4s" :class="{'img04animate slideInRight': circleRoate}" src="../../../assets/images/ren.png" />
         <div class="introBox">
@@ -37,33 +37,13 @@ export default {
   ],
   data() {
     return {
-      cardList: [
-        {
-          pic: require('../../../assets/images/card1.png'),
-          title: '童言对话',
-          desc: 'Conversation',
-          details: '童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述100字左右'
-        },
-        {
-          pic: require('../../../assets/images/card2.png'),
-          title: 'JOJO奇遇记',
-          desc: 'JOJO Stories',
-          details: '原创音频剧“Jojo奇遇记”重磅推出，宝儿们可以听到主角Jojo犯错误或失败的故事，真实、生动、轻松，让我们的孩子学会乐观地看待自己的失误甚至失败。通过听音频剧，与Jojo共同成长，帮助孩子提升适应各种环境与团队的能力；课后互动游戏，提高孩子独立思考与分析的能力。'
-        },
-        {
-          pic: require('../../../assets/images/card3.png'),
-          title: '一起来表演',
-          desc: 'Show time',
-          details: '一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，100字左右'
-        }
-      ],
       introBoxPos: 0,
       animate: true,
     }
   },
   computed: {
     circleRoate() {
-      const toAnimate = this.curTop >= this.introBoxPos + this.curHeight * 3 / 4 && this.curTop < this.introBoxPos + this.curHeight;
+      const toAnimate = this.curTop >= this.introBoxPos + this.curHeight / 3 && this.curTop < this.introBoxPos + this.curHeight;
       if (this.animate && toAnimate) {
         this.animate = false;
         return toAnimate;

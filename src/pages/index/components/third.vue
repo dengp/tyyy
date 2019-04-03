@@ -22,9 +22,9 @@
         <div class="yf-x animated delay-1s" :class="{slideInLeft: circleRoate}"></div>
       </div>
       <div class="con">
-        <h3 class="animated delay-3s" :class="{fadeIn: circleRoate}">不一样的主播</h3>
-        <span class="desc animated delay-4s" :class="{fadeIn: circleRoate}">欧美成人与双语儿童主播，无需拥有英语基础，从零开始的孩子无障碍开启</span>
-        <div class="anchor animated delay-5s" :class="{fadeIn: circleRoate}">
+        <h3 class="animated" :class="{fadeIn: circleRoate}">不一样的主播</h3>
+        <span class="desc animated delay-1s" :class="{fadeIn: circleRoate}">欧美成人与双语儿童主播，无需拥有英语基础，从零开始的孩子无障碍开启</span>
+        <div class="anchor animated delay-2s" :class="{fadeIn: circleRoate}">
           <div class="anchorList" :class="`pos${cur}`"  @mouseenter="enter" @mouseleave="leave">
             <div class="anchorItem" v-for="(item, index) in anchorList" :key="index">
               <img :src="item.pic" />
@@ -46,10 +46,10 @@
           <div class="yf-x animated delay-1s" :class="{slideInLeft: circleRoate}"></div>
         </div>
         <div class="border-min"></div>
-        <span class="desc animated delay-3s" :class="{fadeIn: circleRoate}">欧美成人与双语儿童主播，无需拥有英语基础，从零开始的孩子无障碍开启</span>
+        <span class="desc animated delay-1s" :class="{fadeIn: circleRoate}">欧美成人与双语儿童主播，无需拥有英语基础，从零开始的孩子无障碍开启</span>
       </div>
       <div class="con">
-        <div class="anchor animated delay-4s" :class="{fadeIn: circleRoate}">
+        <div class="anchor animated delay-2s" :class="{fadeIn: circleRoate}">
           <div class="anchorList" :class="`pos${cur}`"  @mouseenter="enter" @mouseleave="leave">
             <div class="anchorItem" v-for="(item, index) in anchorList" :key="index">
               <img :src="item.pic" />
@@ -58,14 +58,14 @@
             </div>
           </div>
         </div>
-        <div class="left animated delay-4s" :class="{fadeIn: circleRoate}" @click="prev"></div>
-        <div class="right animated delay-4s" :class="{fadeIn: circleRoate}" @click="next"></div>
+        <div class="left animated delay-2s" :class="{fadeIn: circleRoate}" @click="prev"></div>
+        <div class="right animated delay-2s" :class="{fadeIn: circleRoate}" @click="next"></div>
       </div>
     </div>
     <div class="videoBoxa">
       <div class="videoBox">
         <div class="videoCover animated" :class="{'videoBoxanimate slideInRight': circleRoate}" v-if="!playVideo">
-          <img src="../../../assets/images/img02.png" />
+          <img src="../../../assets/images/img02.jpg" />
           <div class="play" @click="play"></div>
         </div>
         <video v-else class="video" ref="videoa" width="800" controls="controls">
@@ -87,17 +87,17 @@ export default {
         {
           name: 'NOORLINAH MOHAMED',
           info: 'Noorlinah是一名屡获殊荣的女演员、教学艺术家和新加坡公共参与艺术项目的创造者，自1998年以来，她与新加坡多家戏剧公司以及亚洲、欧洲和美国进行过演出。她拥有华威大学艺术教育学博士学位，在学校担任实习工作，为艺术教育学领域的艺术家和教师开发课程和专业发展。此外，Noorlinah是国家艺术委员会艺术课程教学的首席实践者和顾问，也是O.P.E.的主任这是新加坡国际艺术节的创意展前活动。',
-          pic: require('../../../assets/images/headpic.png')
+          pic: require('../../../assets/images/tx01.jpg')
         },
         {
           name: 'NOORLINAH MOHAMED11111',
           info: 'Noorlinah是一名屡获殊荣的女演员、教学艺术家和新加坡公共参与艺术项目的创造者，自1998年以来，她与新加坡多家戏剧公司以及亚洲、欧洲和美国进行过演出。她拥有华威大学艺术教育学博士学位，在学校担任实习工作，为艺术教育学领域的艺术家和教师开发课程和专业发展。此外，Noorlinah是国家艺术委员会艺术课程教学的首席实践者和顾问，也是O.P.E.的主任这是新加坡国际艺术节的创意展前活动。',
-          pic: require('../../../assets/images/headpic.png')
+          pic: require('../../../assets/images/tx02.jpg')
         },
         {
           name: 'NOORLINAH MOHAMED22222',
           info: 'Noorlinah是一名屡获殊荣的女演员、教学艺术家和新加坡公共参与艺术项目的创造者，自1998年以来，她与新加坡多家戏剧公司以及亚洲、欧洲和美国进行过演出。她拥有华威大学艺术教育学博士学位，在学校担任实习工作，为艺术教育学领域的艺术家和教师开发课程和专业发展。此外，Noorlinah是国家艺术委员会艺术课程教学的首席实践者和顾问，也是O.P.E.的主任这是新加坡国际艺术节的创意展前活动。',
-          pic: require('../../../assets/images/headpic.png')
+          pic: require('../../../assets/images/tx03.jpg')
         }
       ],
       cur: 0,
@@ -109,7 +109,7 @@ export default {
   },
   computed: {
     circleRoate() {
-      const toAnimate = this.curTop >= this.pos + this.curHeight * 3 / 4 && this.curTop < this.pos + this.curHeight;
+      const toAnimate = this.curTop >= this.pos + this.curHeight / 3 && this.curTop < this.pos + this.curHeight;
       if (this.animate && toAnimate) {
         this.animate = false;
         return toAnimate;
@@ -205,14 +205,14 @@ export default {
       right:0px;
       transform: rotate(-45deg);
       animation: circle_right 1s linear forwards;
-      animation-delay: 7s;
+      animation-delay: 4s;
     }
     .leftcircle{
       border-bottom:30px solid #A8C100;
       border-left:30px solid #A8C100;
       left:0;
       animation: circle_left 1s linear forwards;
-      animation-delay: 6s;
+      animation-delay: 3s;
       transform: rotate(-135deg);
     }
     @keyframes circle_right{
@@ -413,7 +413,7 @@ export default {
         position: absolute;
         top: 0;
         right: -800px;
-        animation-delay: 6s;
+        animation-delay: 3s;
         &.videoBoxanimate {
           right: 0;
         }
@@ -625,7 +625,7 @@ export default {
           position: absolute;
           text-align: center;
           right: -10rem;
-          animation-delay: 5s;
+          animation-delay: 3s;
           img {
             width: 6.4rem;
             height: 4.8rem;

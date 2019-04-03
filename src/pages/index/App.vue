@@ -18,7 +18,7 @@
           <div class="icona"></div>
           <span>APP下载</span>
         </div>
-        <div class="gzgzh" @click="showTopEwm">
+        <div class="gzgzh" @click="showTopEwmFn">
           <div class="icona"></div>
           <span>关注公众号</span>
         </div>
@@ -55,11 +55,11 @@ export default {
       showHeaderBg: false,
       curTop: 0,
       curHeight: 0,
-      loading: true
+      loading: false
     }
   },
   mounted() {
-    this.imgLoad();
+    // this.imgLoad();
     window.onscroll = () => {
       const curTop = document.documentElement.scrollTop || document.body.scrollTop;
       const curHeight = document.documentElement.clientHeight || document.body.clientHeight;
@@ -98,6 +98,9 @@ export default {
       Promise.all(promiseAll).then((img)=>{
         this.loading = false;
       });
+    },
+    showTopEwmFn() {
+      this.showTopEwm = true;
     }
   }
 };

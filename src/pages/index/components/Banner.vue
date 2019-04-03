@@ -1,7 +1,7 @@
 <template>
   <div class="bannerBox">
     <div class="banner" v-for="(item, index) in picList" :key="index" :class="{cur: cur === index}">
-      <img :src="require(`../../../assets/images/banner${item}.png`)" />
+      <img :src="require(`../../../assets/images/banner${item}.jpg`)" />
     </div>
   </div>
 </template>
@@ -9,7 +9,7 @@
 export default {
   data() {
     return {
-      picList: ['1', '2', '3', '4'],
+      picList: ['1', '2', '3'],
       cur: 0
     };
   },

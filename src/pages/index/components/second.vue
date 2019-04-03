@@ -63,7 +63,7 @@ export default {
   },
   computed: {
     animated() {
-      const toAnimate = this.curTop >= this.secondPos + this.curHeight * 3 / 4 && this.curTop < this.secondPos + this.curHeight;
+      const toAnimate = this.curTop >= this.secondPos + this.curHeight / 3 && this.curTop < this.secondPos + this.curHeight;
       if (this.animate && toAnimate) {
         this.animate = false;
         return toAnimate;
