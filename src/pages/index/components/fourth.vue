@@ -287,7 +287,7 @@ export default {
     }
   }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 896px) {
   .fourth {
     margin-top: 1.19rem;
     padding-bottom: 0;

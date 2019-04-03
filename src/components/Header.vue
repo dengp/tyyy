@@ -133,7 +133,7 @@ export default {
     }
   }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 896px) {
   .header {
     height: 1.2rem;
     &.menuOpen {

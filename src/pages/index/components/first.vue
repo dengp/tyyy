@@ -422,7 +422,7 @@ export default {
     }
   }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 896px) {
   .main {
     .first {
       width: 100%;

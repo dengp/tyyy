@@ -242,7 +242,7 @@ export default {
     }
   }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 896px) {
   .main {
     padding-top: 1.2rem;
     background: #ffffff;

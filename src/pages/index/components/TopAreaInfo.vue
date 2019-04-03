@@ -56,7 +56,6 @@ export default {
       h2 {
         font-size:48px;
         color:rgba(255,255,255,1);
-        font-family:MicrosoftYaHei;
         font-weight: 400;
         margin: 0 120px 17px 0;
         animation-delay: 1.5s;
@@ -133,7 +132,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 896px) {
   .TopAreaInfo {
     .info {
       min-width: 100%;

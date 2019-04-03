@@ -249,7 +249,7 @@ export default {
     }
   }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 896px) {
   .fifth {
     margin-top: 0.6rem;
     flex-direction: column;

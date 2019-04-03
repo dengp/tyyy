@@ -129,7 +129,7 @@ body {
     display: none;
   }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 896px) {
   .main {
     min-width: 100%;
     .fixedbox {
@@ -148,7 +148,6 @@ body {
       z-index: 1;
       span {
         font-size:0.3rem;
-        font-family:PingFangSC-Medium;
         font-weight:500;
         color:rgba(255,255,255,1);
       }

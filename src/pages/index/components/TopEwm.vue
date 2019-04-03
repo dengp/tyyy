@@ -67,7 +67,7 @@ export default {
     }
   }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 896px) {
   .topEwm {
     flex-direction: column;
     .ewm {

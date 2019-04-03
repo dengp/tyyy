@@ -322,7 +322,6 @@ export default {
     margin: 79px 0 0 100px;
     h3 {
       font-size:36px;
-      font-family:MicrosoftYaHei-Bold;
       font-weight:bold;
       line-height:18px;
       opacity: 0;
@@ -441,7 +440,7 @@ export default {
     }
   }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 896px) {
   .third {
     padding-bottom: 0;
     overflow: inherit;
