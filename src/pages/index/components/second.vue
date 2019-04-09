@@ -243,7 +243,7 @@ export default {
     }
   }
 }
-@media screen and (max-width: 896px) {
+@media screen and (max-width: 1025px) {
   .second {
     padding-top: 0;
     margin-top: -0.5rem;

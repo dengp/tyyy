@@ -132,7 +132,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 896px) {
+@media screen and (max-width: 1025px) {
   .TopAreaInfo {
     .info {
       min-width: 100%;
@@ -161,7 +161,7 @@ export default {
         position: initial;
         background: url("~assets/images/iPhone.png");
         background-size: 100% 100%;
-        margin-bottom: -1rem;
+        margin-bottom: -2rem;
       }
     }
   }
