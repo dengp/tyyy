@@ -112,7 +112,7 @@ body {
 </style>
 <style lang="less" scoped>
 .main {
-  min-width: 1440px;
+  min-width: 1300px;
   height: 100%;
   position: relative;
   margin: 0 auto;

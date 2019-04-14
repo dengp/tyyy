@@ -68,7 +68,7 @@
           <img src="../../../assets/images/img02.jpg" />
           <div class="play" @click="play"></div>
         </div>
-        <video v-else class="video" ref="videoa" width="800" controls="controls">
+        <video v-else class="video" ref="videoa" width="660" controls="controls">
           <source src="../../../assets/images/cg_v1.mp4" type="video/mp4" />
         </video>
       </div>
@@ -275,7 +275,7 @@ export default {
   }
   .conBox {
     display: none;
-    width:1300px;
+    width:1160px;
     height:640px;
     background:rgba(168,193,0,1);
     position: relative;
@@ -402,8 +402,8 @@ export default {
       position: absolute;
       right: 0px;
       bottom: 0;
-      width: 800px;
-      height: 600px;
+      width: 660px;
+      height: 495px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -412,14 +412,14 @@ export default {
       .videoCover {
         position: absolute;
         top: 0;
-        right: -800px;
+        right: -660px;
         animation-delay: 3s;
         &.videoBoxanimate {
           right: 0;
         }
         img {
-          width: 800px;
-          height: 600px;
+          width: 660px;
+          height: 495px;
         }
         .play {
           position: absolute;
@@ -433,7 +433,8 @@ export default {
         }
       }
       .video {
-        width: 800px;
+        width: 660px;
+        height: 495px;
         position: relative;
         z-index: 3;
       }

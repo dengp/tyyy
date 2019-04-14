@@ -151,10 +151,9 @@ export default {
       z-index: 1;
     }
     .img03 {
-      width:800px;
-      height:600px;
+      width:660px;
       position: absolute;
-      left: -800px;
+      left: -660px;
       bottom: 0px;
       z-index: 1;
       &.img3animate {
@@ -173,7 +172,7 @@ export default {
       }
     }
     .introBox {
-      width:1300px;
+      width:1160px;
       height:640px;
       background:rgba(28,188,249,1);
       z-index: 0;

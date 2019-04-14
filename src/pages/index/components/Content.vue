@@ -35,7 +35,7 @@ export default {
   position: relative;
   z-index: 1;
   .content {
-    width: 1440px;
+    width: 1300px;
     margin: 0 auto;
     position: relative;
   }
