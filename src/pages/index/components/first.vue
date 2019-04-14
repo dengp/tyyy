@@ -49,14 +49,14 @@
           <div class="intro">
             <h4 :class="{'animated fadeIn': circleRoate}">我们的与众不同</h4>
             <ul :class="{'animated fadeIn': circleRoate}">
-              <li><span>·</span><span>第一个原创英文音频对话节目</span></li>
-              <li><span>·</span><span>纯正欧美成人与双语儿童主播</span></li>
-              <li><span>·</span><span>海量对话和儿童剧音频，原创音频剧【JOJO奇遇记】重磅推出</span></li>
-              <li><span>·</span><span>定制化的配套双语文本</span></li>
-              <li><span>·</span><span>高质量的互动型亲子活动与游戏</span></li>
-              <li><span>·</span><span>无需拥有英语基础，从零开始的孩子无障碍开启</span></li>
-              <li><span>·</span><span>不同的级别适应各年龄段孩子需求</span></li>
-              <li><span>·</span><span>支持在线和缓存模式，可在任何智能设备上收听，全平台覆盖。收听时间和空间不受限制，随时随地，无需预约</span></li>
+              <li><span>o</span><span>第一个原创英文音频对话节目</span></li>
+              <li><span>o</span><span>纯正欧美成人与双语儿童主播</span></li>
+              <li><span>o</span><span>海量对话和儿童剧音频，原创音频剧【JOJO奇遇记】重磅推出</span></li>
+              <li><span>o</span><span>定制化的配套双语文本</span></li>
+              <li><span>o</span><span>高质量的互动型亲子活动与游戏</span></li>
+              <li><span>o</span><span>无需拥有英语基础，从零开始的孩子无障碍开启</span></li>
+              <li><span>o</span><span>不同的级别适应各年龄段孩子需求</span></li>
+              <li><span>o</span><span>支持在线和缓存模式，可在任何智能设备上收听，全平台覆盖。收听时间和空间不受限制，随时随地，无需预约</span></li>
             </ul>
           </div>
         </div>

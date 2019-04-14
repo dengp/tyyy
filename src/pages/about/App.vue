@@ -1,6 +1,5 @@
 <template>
   <div class="main">
-    <loading v-if="loading" />
     <Header :current="1" />
     <div class="con">
       <div class="titleBox">
@@ -40,17 +39,14 @@
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { request } from '../../api/request';
-import loading from '../../components/loading';
 export default {
   components: {
     Header,
-    Footer,
-    loading
+    Footer
   },
   data() {
     return {
-      content: '',
-      loading: true
+      content: ''
     };
   },
   mounted() {
@@ -61,9 +57,6 @@ export default {
       }
     }).then((response) => {
       this.content = response.data.rows[0].content;
-      this.loading = false;
-    }).catch(() => {
-      this.loading = false;
     });
   }
 };
@@ -83,17 +76,16 @@ export default {
     .titleBox {
       width:100%;
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;  
       img {
         height: 180px;
       }
       h1 {
+        width: 100%;
+        line-height: 180px;
+        text-align: center;
         position: absolute;
         font-size:42px;
         font-weight:400;
-        line-height:59px;
         color: #ffffff;
       }
     }

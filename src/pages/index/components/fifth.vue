@@ -11,8 +11,8 @@
           <div class="circle" :class="{leftcircle: circleRoate}"></div>
         </div>
       </div>
-      <img class="img03 animated" :class="{'img3animate slideInLeft': circleRoate}" src="../../../assets/images/img03.jpg" />
       <div class="over">
+        <img class="img03 animated" :class="{'img3animate slideInLeft': circleRoate}" src="../../../assets/images/img03.jpg" />
         <img class="img04 animated delay-4s" :class="{'img04animate slideInRight': circleRoate}" src="../../../assets/images/ren.png" />
         <div class="introBox">
           <div class="border-min"></div>

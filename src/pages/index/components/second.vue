@@ -10,7 +10,7 @@
         <div class="lv">
           <div :class="`lvblock lv${index+1}`">
             <p class="hoverCon" v-html="item.cnt"></p>
-            <p>{{item.lv}}</p>
+            <p v-html="item.lv"></p>
           </div>
           <span class="title">{{item.title}}</span>  
         </div>
@@ -32,25 +32,25 @@ export default {
     return {
       lvList: [
         {
-          lv: '基础LV1',
+          lv: '基础<br/>LV1',
           title: 'Beginner',
           desc: 'Beginner （LV1）零基础<br/>从零开始的英语启蒙，针对没有接触任何英语学习的低龄学员。全面倾听纯正英语对话，从戏剧场景中进行系统学习英语',
           cnt: '9个<br/>Program'
         },
         {
-          lv: '初级LV2',
+          lv: '初级<br/>LV2',
           title: 'Elementary',
           desc: 'Elementary （LV2）初级<br/>针对初级接触英语学习的低龄学员。全面倾听纯正英语对话，从戏剧场景中进行系统学习英语，针对初级接触英语学员。',
           cnt: '6个<br/>Program'
         },
         {
-          lv: '中级LV3',
+          lv: '中级<br/>LV3',
           title: 'Intermediate',
           desc: 'Intermediate （LV3）中级<br/>针对中级英语学习的学员。进行简单英语对话交流，识别单词达300以上。针对中级英语学习的学员。',
           cnt: '6个<br/>Program'
         },
         {
-          lv: '高级LV4',
+          lv: '高级<br/>LV4',
           title: 'Advanced',
           desc: 'Advanced （LV4）高级<br/>针对高级英语学习的学员。英语对话交流无障碍，识别单词达500以上。针对高级英语学习的学员。',
           cnt: '6个<br/>Program'
@@ -151,7 +151,6 @@ export default {
           justify-content: center;
           align-items: flex-end;
           p {
-            width:36px;
             height:40px;
             font-size:18px;
             font-weight:bold;
