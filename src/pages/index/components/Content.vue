@@ -35,7 +35,7 @@ export default {
   position: relative;
   z-index: 1;
   .content {
-    width: 1300px;
+    width: 1440px;
     margin: 0 auto;
     position: relative;
   }
@@ -44,6 +44,13 @@ export default {
   .contentBox {
     .content {
       width: 100%;
+    }
+  }
+}
+@media screen and (min-width: 1026px) and (max-width: 1439px) {
+  .contentBox {
+    .content {
+      width: 1300;
     }
   }
 }

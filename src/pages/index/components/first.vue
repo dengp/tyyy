@@ -362,9 +362,9 @@ export default {
         left: 0px;
       }
       .img01 {
-        width: 660px;
+        width: 800px;
         position: absolute;
-        left: -660px;;
+        left: -800px;
         bottom: 149px;
         z-index: 1;
         &.img01animate{
@@ -372,7 +372,7 @@ export default {
         }
       }
       .introBox {
-        width:1160px;
+        width:1300px;
         height:640px;
         background:rgba(237,92,52,1);
         position: relative;
@@ -621,6 +621,14 @@ export default {
         }
       }
     }
+  }
+}
+@media screen and (min-width: 1026px) and (max-width: 1439px) {
+  .introBox {
+    width:1160px !important;
+  }
+  .img01 {
+    width: 660px !important;
   }
 }
 .swiper-slide {

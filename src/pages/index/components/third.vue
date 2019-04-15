@@ -68,7 +68,7 @@
           <img src="../../../assets/images/img02.jpg" />
           <div class="play" @click="play"></div>
         </div>
-        <video v-else class="video" ref="videoa" width="660" controls="controls">
+        <video v-else class="video" ref="videoa" controls="controls">
           <source src="../../../assets/images/cg_v1.mp4" type="video/mp4" />
         </video>
       </div>
@@ -275,7 +275,7 @@ export default {
   }
   .conBox {
     display: none;
-    width:1160px;
+    width:1300px;
     height:640px;
     background:rgba(168,193,0,1);
     position: relative;
@@ -402,8 +402,8 @@ export default {
       position: absolute;
       right: 0px;
       bottom: 0;
-      width: 660px;
-      height: 495px;
+      width: 800px;
+      height: 600px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -412,14 +412,13 @@ export default {
       .videoCover {
         position: absolute;
         top: 0;
-        right: -660px;
+        right: -800px;
         animation-delay: 3s;
         &.videoBoxanimate {
           right: 0;
         }
         img {
-          width: 660px;
-          height: 495px;
+          width: 800px;
         }
         .play {
           position: absolute;
@@ -433,8 +432,8 @@ export default {
         }
       }
       .video {
-        width: 660px;
-        height: 495px;
+        width: 800px;
+        height: 600px;
         position: relative;
         z-index: 3;
       }
@@ -645,6 +644,15 @@ export default {
         }
       }
     }
+  }
+}
+@media screen and (min-width: 1026px) and (max-width: 1439px) {
+  .videoBox, .videoCover img, .video {
+    width:660px !important;
+    height: 495px !important;
+  }
+  .conBox {
+    width: 1160px !important;
   }
 }
 </style>

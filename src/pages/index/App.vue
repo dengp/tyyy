@@ -112,7 +112,7 @@ body {
 </style>
 <style lang="less" scoped>
 .main {
-  min-width: 1300px;
+  min-width: 1440px;
   height: 100%;
   position: relative;
   margin: 0 auto;
@@ -180,6 +180,11 @@ body {
     .footer {
       padding-bottom: 1rem;
     }
+  }
+}
+@media screen and (min-width: 1026px) and (max-width: 1439px) {
+  .main {
+    min-width: 1300px;
   }
 }
 </style>

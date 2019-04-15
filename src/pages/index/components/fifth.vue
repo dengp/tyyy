@@ -151,9 +151,9 @@ export default {
       z-index: 1;
     }
     .img03 {
-      width:660px;
+      width:800px;
       position: absolute;
-      left: -660px;
+      left: -800px;
       bottom: 0px;
       z-index: 1;
       &.img3animate {
@@ -172,7 +172,7 @@ export default {
       }
     }
     .introBox {
-      width:1160px;
+      width:1300px;
       height:640px;
       background:rgba(28,188,249,1);
       z-index: 0;
@@ -326,6 +326,15 @@ export default {
         }
       }
     }
+  }
+}
+@media screen and (min-width: 1026px) and (max-width: 1439px) {
+  .img03, {
+    width:660px !important;
+    height: 495px !important;
+  }
+  .introBox {
+    width: 1160px !important;
   }
 }
 </style>
