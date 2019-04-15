@@ -1,6 +1,13 @@
 <template>
   <div class="footer">
     <div class="foot pc">
+      <p>©2019 童演童语（北京）教育科技有限公司 版权所有 | 京ICP备13005700</p>
+      <div class="list">
+        <a href="./about.html">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./contact.html">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./join.html">加入我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./protocol.html">用户协议</a>
+      </div>
+      <p>技术支持：北京启航视讯科技有限公司</p>
+    </div>
+    <div class="foot">
       <p>©2019 童演童语（北京）教育科技有限公司 版权所有
         <span>京ICP备13005700</span>
       </p>
@@ -8,12 +15,6 @@
         <a href="./about.html">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./contact.html">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./join.html">加入我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./protocol.html">用户协议</a>
       </div>
       <p>技术支持：北京启航视讯科技有限公司</p>
-    </div>
-    <div class="foot">
-      <div class="list">
-        <a href="./about.html">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./contact.html">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./join.html">加入我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./protocol.html">用户协议</a>
-      </div>
-      <p>©2019 童演童语（北京）教育科技有限公司 版权所有京ICP备13005700<span>技术支持：北京启航视讯科技有限公司</span></p>
     </div>
   </div>
 </template>
