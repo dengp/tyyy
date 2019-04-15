@@ -1,16 +1,10 @@
 <template>
   <div class="footer">
-    <div class="foot pc">
-      <p>©2019 童演童语（北京）教育科技有限公司 版权所有 | 京ICP备13005700</p>
-      <div class="list">
-        <a href="./about.html">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./contact.html">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./join.html">加入我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./protocol.html">用户协议</a>
-      </div>
-      <p>技术支持：北京启航视讯科技有限公司</p>
-    </div>
     <div class="foot">
-      <p>©2019 童演童语（北京）教育科技有限公司 版权所有
+      <p class="copy">©2019 童演童语（北京）教育科技有限公司 版权所有
         <span>京ICP备13005700</span>
       </p>
+      <p class="copy pc">©2019 童演童语（北京）教育科技有限公司 版权所有 | 京ICP备13005700</p>
       <div class="list">
         <a href="./about.html">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./contact.html">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./join.html">加入我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./protocol.html">用户协议</a>
       </div>
@@ -26,10 +20,6 @@
   z-index: 1;
   .foot {
     padding: 34px 5.8%;
-    display: none;
-    &.pc {
-      display: block;
-    }
     .list {
       color:rgba(102,102,102,1);
       margin: 14px 0;
@@ -44,6 +34,13 @@
       display: block;
       line-height:17px;
       span {
+        display: block;
+      }
+      &.copy {
+        font-size: 14px;
+        display: none;
+      }
+      &.pc {
         display: block;
       }
     }
@@ -62,16 +59,23 @@
       }
       .list {
         a {
-          font-size:0.24rem;
+          font-size:0.2rem;
         }
       }
       p {
-        font-size: 0.2rem;
+        font-size: 0.16rem;
         line-height: 0.28rem;
         color:rgba(102,102,102,1);
         margin-top: 0.16rem;
         span {
           margin-top: 0.05rem;
+        }
+        &.copy {
+          font-size: 0.2rem;
+          display: block;
+        }
+        &.pc {
+          display: none;
         }
       }
     }
