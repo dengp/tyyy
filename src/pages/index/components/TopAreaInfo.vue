@@ -16,36 +16,13 @@
       <div class="go" @click="go">
         <span></span>
       </div>
-      <div class="mobile animated fadeInUp pc"></div>
-      <div class="mobile animated fadeInUp" ref="mobile" :style="{marginBottom: relPos}"></div>
+      <img class="mobile animated fadeInUp" src="../../../assets/images/iPhoneX.png" />
     </div>
   </div>
 </template>
 <script>
 import { scrollTop } from '../scroll';
 export default {
-  data() {
-    return {
-      mobilePos: 0,
-      wordpos: 0
-    };
-  },
-  computed: {
-    relPos() {
-      let relPos = 0;
-      console.log(this.mobilePos-this.wordpos)
-      if (this.mobilePos-this.wordpos < 40) {
-        relPos = -this.mobilePos*2/3;
-      }
-      return relPos;
-    }
-  },
-  mounted() {
-    this.$nextTick(() => {
-      this.mobilePos = document.body.clientHeight - this.$refs.mobile.offsetHeight;
-      this.wordpos = this.$refs.wordpos.offsetTop;
-    });
-  },
   methods: {
     go() {
       // document.body.style.overflow = 'scroll';
@@ -145,17 +122,10 @@ export default {
     }
     .mobile {
       width: 252px;
-      height: 500px;
-      background: url("~assets/images/iPhoneX.png");
-      background-size: 100% 100%;
       position: absolute;
       left: 222px;
       bottom: 10px;
       animation-duration: 2s;
-      display: none;
-      &.pc {
-        display: block;
-      }
     }
   }
 }
@@ -165,11 +135,11 @@ export default {
     .info {
       min-width: 100%;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       .title {
         h2 {
           font-size:0.48rem;
-          margin: 0.28rem 0 0 0;
+          margin: 0.3rem 0 0 0;
           text-align: center;          
           &.eng {
             font-size: 0.72rem;
@@ -184,16 +154,9 @@ export default {
         display: none;
       }
       .mobile {
-        width: 4.34rem;
-        height: 7.9rem;
+        width: 4.33rem;
         position: initial;
-        background: url("~assets/images/iPhone.png");
-        background-size: 100% 100%;
-        margin-bottom: 0rem;
-        display: block;
-        &.pc {
-          display: none;
-        }
+        margin-top: 0.6rem;
       }
     }
   }
