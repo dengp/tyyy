@@ -5,6 +5,7 @@
         <h2 class="eng animated fadeInUp">Stage Your Future</h2>
         <h2 class="cn animated fadeInUp">展现你的未来</h2>
       </div>
+      <div ref="wordpos"></div>
       <div class="icon animated fadeInUp">
         <div class="plam">
           <span class="ios"></span>
@@ -15,13 +16,36 @@
       <div class="go" @click="go">
         <span></span>
       </div>
-      <div class="mobile animated fadeInUp"></div>
+      <div class="mobile animated fadeInUp pc"></div>
+      <div class="mobile animated fadeInUp" ref="mobile" :style="{marginBottom: relPos}"></div>
     </div>
   </div>
 </template>
 <script>
 import { scrollTop } from '../scroll';
 export default {
+  data() {
+    return {
+      mobilePos: 0,
+      wordpos: 0
+    };
+  },
+  computed: {
+    relPos() {
+      let relPos = 0;
+      console.log(this.mobilePos-this.wordpos)
+      if (this.mobilePos-this.wordpos < 40) {
+        relPos = -this.mobilePos*2/3;
+      }
+      return relPos;
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.mobilePos = document.body.clientHeight - this.$refs.mobile.offsetHeight;
+      this.wordpos = this.$refs.wordpos.offsetTop;
+    });
+  },
   methods: {
     go() {
       // document.body.style.overflow = 'scroll';
@@ -128,6 +152,10 @@ export default {
       left: 222px;
       bottom: 10px;
       animation-duration: 2s;
+      display: none;
+      &.pc {
+        display: block;
+      }
     }
   }
 }
@@ -161,7 +189,11 @@ export default {
         position: initial;
         background: url("~assets/images/iPhone.png");
         background-size: 100% 100%;
-        margin-bottom: -2rem;
+        margin-bottom: 0rem;
+        display: block;
+        &.pc {
+          display: none;
+        }
       }
     }
   }
