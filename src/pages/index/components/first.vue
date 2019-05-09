@@ -11,7 +11,7 @@
         <img :src="item.pic" />
         <span class="cardTitle">{{item.title}}</span>
         <span class="desc">{{item.desc}}</span>
-        <p class="details" :class="`details${index}`">{{item.details}}</p>
+        <p class="details" :class="`details${index}`" v-html="item.details"></p>
       </div>
     </div>
     <div class="cardList">
@@ -83,20 +83,20 @@ export default {
         {
           pic: require('../../../assets/images/card1.jpg'),
           title: '童言对话',
-          desc: 'Conversation',
-          details: '童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述，童言对话相应文字描述100字左右'
+          desc: 'Conversations',
+          details: '<strong>此版块带给大家完整的节目和课程：</strong><br/>1.首次由纯正欧美成人与华裔儿童双语主播组合，通过对话的形式展现真实生活场景对话<br/>2.涵盖Jojo 奇遇记-国内第1个[原创]的音频家庭情景剧<br/>3.双语主播在对话中预告音频剧内容，华裔儿童的中文讲解核心句式和词汇，有助于无英语基础的孩子理解<br/>4.公众号和APP提供配套文本，免费课程提供简版，收费课程提供完整版'
         },
         {
           pic: require('../../../assets/images/card2.jpg'),
           title: 'JOJO奇遇记',
-          desc: 'JOJO Stories',
-          details: '原创音频剧“Jojo奇遇记”重磅推出，宝儿们可以听到主角Jojo犯错误或失败的故事，真实、生动、轻松，让我们的孩子学会乐观地看待自己的失误甚至失败。通过听音频剧，与Jojo共同成长，帮助孩子提升适应各种环境与团队的能力；课后互动游戏，提高孩子独立思考与分析的能力。'
+          desc: 'JOJO’s Adventures',
+          details: '<strong>此版块将每期的原创音频剧“Jojo奇遇记”单独分享给大家：</strong><br/>1.宝儿们可以听到主角Jojo犯错误或失败的故事<br/>2.真实、生动、轻松，让我们的孩子学会乐观地看待自己的失误甚至失败<br/>3.听音频剧，与Jojo共同成长，帮助孩子提升适应各种环境与团队的能力<br/>4.有趣的课后互动游戏，检验收听和学习效果，提高孩子独立思考与分析的能力'
         },
         {
           pic: require('../../../assets/images/card3.jpg'),
           title: '一起来表演',
           desc: 'Show time',
-          details: '一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，一起表演相应文字描述，100字左右'
+          details: '<strong>此版块提供收听/学习效果评估：</strong><br/>1.为已收听了节目和课程的孩子，配备课后跟读练习<br/>2.提供效果评分'
         }
       ],
       firstPos: 0,
